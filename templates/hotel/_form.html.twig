@@ -1,0 +1,33 @@
+
+
+
+{{ form_start(form) }}
+                 
+                                            {{ form_row(form.sejour) }}
+
+                     {{ form_row(form.aticle.dest, {'label' : 'Ville'}) }}
+
+                      {{ form_row(form.aticle.titre, {'label': 'Titre'}) }}
+                      {{ form_row(form.aticle.pix, {'label': 'Prix'}) }}
+                                            {{ form_row(form.adresse) }}
+                          {{ form_row(form.etoile) }}
+{{ form_label(form.aticle.shortdesc, 'court déscripton') }}
+
+                      {{ form_widget(form.aticle.shortdesc, 
+                        { 'attr': {'class': 'short'} }) }}
+
+
+                    
+                      {{ form_row(form.aticle.descrip, {'label': 'déscripton'}) }}
+                      {{ form_row(form.aticle.datedep, {'label': 'date départ'}) }}
+
+                      {{ form_row(form.aticle.datearriv, {'label': 'date darrivée'}) }}
+                      {{ form_row(form.topHotel) }}
+                                            {{ form_row(form.aticle.topDistination) }}
+
+
+                                            {{ form_row(form.aticle.promo) }}
+                                            {{ form_row(form.aticle.Media) }}
+                                            {{ form_row(form.aticle.images) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

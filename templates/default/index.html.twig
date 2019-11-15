@@ -1,0 +1,419 @@
+{% extends 'Frontbase.html.twig' %}
+{% block logo %}
+    {{parent()}}
+{% endblock %}
+
+
+
+
+															{% block ButtonSerch%}
+{% block TitreRecherche %}
+														Rechercher des Hotels Domestiques & Internationales  	 
+   
+						{% endblock %}
+<form action="{{ path('hotel', parameters = [1], relative = false) }}
+">
+															<div class="reservation">
+																<ul>		
+																	<li  class="span1_of_1 desti about-desti">
+																		 <h5>Destination</h5>
+																		 <div class="book_date">
+																				<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+																				<input type="text" placeholder="PAYS/VILLE" class="typeahead1 input-md form-control tt-input" required="" name="serch">
+																		 </div>					
+																	 </li>
+																</ul>
+															</div>
+
+															<div class="reservation">
+																<ul>
+														<div class="col-md-4 banner-bottom-grid">
+	
+																<div>
+																	 <li  class="span1_of_1">
+																		 <h5>Date Debut</h5>
+																		 <div class="book_date">
+																			<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+																			<input type="date" name="from" value="Select date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Select date';}">
+																		 </div>		
+																	 </li><br>
+																	 <br>
+																	 <li  class="span1_of_1 left" style="
+    margin-left: -0.4%;
+">
+																		 <h5>Date Fin</h5>
+																		 <div class="book_date">
+																				<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+																				<input type="date" name="to"value="Select date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Select date';}">
+																		 </div>					
+																	 </li>
+																	 </div>
+                                                                </div> 
+                 <div class="col-md-4 banner-bottom-grid">
+
+																	<li class="span1_of_1 left h-child">
+																			 <h5>Etoiles</h5>
+																		
+																		 <div class="section_room">
+																		
+					                <div class="h-class">
+							
+						          	<div class="hotel-price">
+								<label class="check">
+									<input type="radio" name="categorie_rech" value="10000" checked="">
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="starTextLabel">tous</span>
+								</label>
+							</div>
+							<div class="hotel-price">
+								<label class="check">
+									<input type="radio" name="categorie_rech" value="5">
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="starTextLabel">5 Etoiles</span>
+								</label>
+							</div>
+							<div class="hotel-price">
+								<label class="check">
+									<input type="radio" name="categorie_rech" value="4">
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="starTextLabel">4 Etoiles</span>
+								</label>
+							</div>
+							<div class="hotel-price">
+								<label class="check">
+									<input type="radio" name="categorie_rech" value="3">
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="starTextLabel">3 Etoiles</span>
+								</label>
+							</div>
+							
+							
+						</div>
+																		 </div>	
+																	</li>
+														</div>
+																	 <div class="clearfix"></div>
+																</ul>
+															</div>
+															<div class="reservation">
+																<ul>
+																	
+																	<div class="clearfix"></div>
+																</ul>
+															</div>
+
+															<div class="reservation">
+																<ul>	
+																	 <li class="span1_of_3">
+																			<div class="date_btn">
+																				
+																				<input class="btn btn-primary" type="submit" value="Search" 
+/>
+
+																			</div>
+																	 </li>
+																	 <div class="clearfix"></div>
+																</ul>
+															</div>
+</form>
+
+			
+
+															{% endblock %}
+ {% block sejourtunis %}
+ 
+ 	<div class="col-md-4 banner-bottom-grid">
+							
+							<div class="choose" style="
+							margin-top: 23%;">
+									<div class="choose-info">
+										<h2 class="mb-4"><strong>SÉJOURS</strong> EN TUNISIE</h2>
+
+									</div>
+									<div class="choose-grids">
+									        {% for hotel in hotTN %}
+
+									<div class="td-grids">
+											<div class="col-xs-3 td-left">
+											<a href="{{ path('detailArticle', parameters = {'id':hotel.aticle.id }, relative = false) }}">	<img src="images/products/{{hotel.aticle.Media.image.name}}" alt=""/></a>
+											</div>
+											<div class="col-xs-7 td-middle">
+											<a href="{{ path('detailArticle', parameters = {'id':hotel.aticle.id }, relative = false) }}">{{hotel.aticle.titre}}</a>
+
+											<p>{{hotel.aticle.shortdesc}}</p>
+{% for i in 1.. hotel.etoile  %}
+    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+{% endfor %}	
+
+
+											</div>
+											<div class="col-xs-2 td-right">
+												<p>{{hotel.aticle.pix}}DT</p>
+											</div>
+											<div class="clearfix"> </div>
+										</div>
+
+								{% endfor %}											
+
+								
+								
+                                  
+									
+									</div>
+								</div>
+					</div>
+ 
+ 
+ 
+ {% endblock %}
+  {% block sejouretranger %}
+                 <div class="col-md-4 banner-bottom-grid">
+						
+							<div class="top-destinations-grids" style="
+							margin-top: 23%;
+						">
+
+								<div class="top-destinations-info">
+									<h2 class="mb-4"><strong>SÉJOURS</strong> À L étranger</h2>
+
+								</div>
+								<div class="top-destinations-bottom">
+
+									        {% for hotel in hotET %}
+
+									<div class="td-grids">
+										<div class="col-xs-3 td-left">
+									<a href="{{ path('detailArticle', parameters = {'id':hotel.aticle.id }, relative = false) }}">		<img src="images/products/{{hotel.aticle.Media.image.name}}" alt=""/></a>
+										</div>
+										<div class="col-xs-7 td-middle">
+											<a href="{{ path('detailArticle', parameters = {'id':hotel.aticle.id }, relative = false) }}">{{hotel.aticle.titre}}</a>
+											<p>{{hotel.aticle.shortdesc}}</p>
+{% for i in 1.. hotel.etoile  %}
+    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+{% endfor %}											
+                                          
+										</div>
+										<div class="col-xs-2 td-right">
+											<p>{{hotel.aticle.pix}}DT</p>
+										</div>
+										<div class="clearfix"> </div>
+									</div>
+								{% endfor %}
+
+									
+									</div>
+								</div>
+							</div>
+		        	</div>
+      {% endblock %}
+  {% block promos %}
+				<div class="col-md-4 banner-bottom-grid">
+					
+							<div class="news-grids" style="
+							margin-top: 23%;
+						">
+								<div class="news-grids-info">
+									<h2 class="mb-4"><strong>Nos</strong> Promos</h2>
+
+								</div>
+								<div class="news-grids-bottom">
+									<!-- date -->
+									<div id="design" class="date">
+										<div id="cycler">   
+											
+											
+											
+											
+																				        {% for hotel in promo %}
+
+											<div class="td-grids">
+											<div class="col-xs-3 td-left">
+									<a href="{{ path('detailArticle', parameters = {'id':hotel.id }, relative = false) }}">			<img src="images/products/{{hotel.Media.image.name}}" alt=""/></a>
+											</div>
+											<div class="col-xs-7 td-middle">
+												<a href="{{ path('detailArticle', parameters = {'id':hotel.id }, relative = false) }}">{{hotel.titre}}</a>
+												{{hotel.shortdesc}}
+	
+
+
+										</div>
+											<div class="col-xs-2 td-right" style="    margin-left: -10%;">
+												<p>{{hotel.pix}}DT</p>
+												<span class="p-last-price" style="text-decoration: line-through;">{{hotel.pix-((hotel.promo.promo * hotel.pix) / 100) }}DT
+</span>
+											</div>
+											<div class="clearfix"> </div>
+										</div>
+
+								{% endfor %}
+
+
+										<script>
+											function cycle($item, $cycler){
+												setTimeout(cycle, 2000, $item.next(), $cycler);
+												
+												$item.slideUp(1000,function(){
+													$item.appendTo($cycler).show();        
+												});
+								
+												}
+											cycle($('#cycler div:first'),  $('#cycler'));
+										</script>
+									</div>
+									<!-- //date -->
+								</div>
+							</div>
+						<div class="clearfix"> 
+                        </div>
+					</div>
+				</div>
+				<!-- //container -->
+			</div>
+            {% endblock %}
+				{% block topdestination %}
+			<div class="popular-grids">
+				<!-- container -->
+				<div class="container">
+					<div class="popular-info">
+						<h3>Top destination
+							</h3>
+					</div>
+					<!-- slider -->
+					<div class="slider">
+								<div class="row">
+						
+								
+							
+									        {% for hotel in TopDist %}
+
+								
+									<div class="col-sm col-md-6 col-lg ftco-animate fadeInUp ftco-animated">
+										<div class="destination">
+												<a href="{{ path('detailArticle', parameters = {'id':hotel.id }, relative = false) }}" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/products/{{hotel.Media.image.name}})">
+												<div class="icon d-flex justify-content-center align-items-center">
+													<span class="icon-search2"></span>
+												</div>
+											</a>
+											<div class="text p-3">
+												<div class="d-flex">
+															<div class="one">
+														<h3><a href="{{ path('detailArticle', parameters = {'id':hotel.id }, relative = false) }}">
+
+{% if hotel.hotel != null %}
+														{{ hotel.hotel.sejour.paye}},{{hotel.dest}}
+
+{% endif %}
+
+													</a></h3>
+														<p class="rate">
+															<span>{{hotel.titre}}</span>
+														</p>
+													</div>
+													<div class="two">
+														<span class="price">{{hotel.pix}}DT</span>
+													</div>
+												</div>
+																							<p>{{hotel.shortdesc}}</p>
+
+												<hr>
+												<p class="bottom-area d-flex">
+													<span class="ml-auto"><a href="#">Découvrir</a></span>
+												</p>
+											</div>
+										</div>
+									</div>
+									{% endfor %}
+
+								</div>
+								<script type="text/javascript" src="js/jquery.flexisel.js"></script>			 
+						</div>
+					</div>
+					<!-- //slider -->
+				</div>
+				<!-- //container -->
+			</div>
+			{% endblock %}
+
+
+						{% block tophotel %}
+
+<div class="popular-grids">
+				<!-- container -->
+				<div class="container">
+					<div class="popular-info">
+						<h3>Top Hotels
+							</h3>
+					</div>
+					<!-- slider -->
+					<div class="slider">
+							<div class="row">
+
+									        {% for hotel in TopHotel %} 
+
+
+									<div class="col-sm col-md-6 col-lg ftco-animate fadeInUp ftco-animated">
+										<div class="destination">
+											<a href="{{ path('detailArticle', parameters = {'id':hotel.aticle.id }, relative = false) }}" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/products/{{hotel.aticle.Media.image.name}})">
+												<div class="icon d-flex justify-content-center align-items-center">
+													<span class="icon-search2"></span>
+												</div>
+											</a>
+											<div class="text p-3">
+												<div class="d-flex">
+													<div class="one">
+														<h3><a href="{{ path('detailArticle', parameters = {'id':hotel.aticle.id }, relative = false) }}">{{hotel.aticle.hotel.sejour.paye}},{{hotel.aticle.dest}}</a>
+
+														</h3>
+														<p class="rate">
+															<span>{{hotel.aticle.titre}}</span>
+														</p>
+													</div>
+													<div class="two">
+														<span class="price">{{hotel.aticle.pix}}Dt</span>
+													</div>
+												</div>
+												<p>{{hotel.aticle.shortdesc}}</p>
+												<hr>
+												<p class="bottom-area d-flex">
+													<span class="ml-auto"><a href="#">Découvrir</a></span>
+												</p>
+											</div>
+										</div>
+									</div>
+																{% endfor %}
+
+						
+
+						
+								
+
+
+
+
+
+
+								</div>
+								<script type="text/javascript" src="js/jquery.flexisel.js"></script>			 
+						</div>
+					</div>
+					<!-- //slider -->
+				</div>
+				<!-- //container -->
+			</div>
+
+		    
+			{% endblock %}
+		

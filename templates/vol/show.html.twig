@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vol{% endblock %}
+
+{% block body %}
+    <h1>Vol</h1>
+
+    <table class="table">
+       <thead>
+              <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>date de départ</th>
+                <th>date d'arrivée</th>
+
+                <th>Départ</th>
+                <th>destination</th>
+
+                <th>Adulte</th>
+                <th>Jeune</th>
+            </tr>
+        </thead>
+ <tbody>
+            <tr>
+                <td>{{ vol.id }}</td>
+                <td>{{ vol.article.Titre }}</td>
+                 <td>{{ vol.article.datedep |date('Y-m-d') }}</td>
+                <td>{{ vol.article.datearriv  |date('Y-m-d')}}</td>
+                <td>{{ vol.depart }}</td>
+                <td>{{ vol.article.dest }}</td>
+
+                <td>{{ vol.adulte }}</td>
+                <td>{{ vol.jeune }}</td>
+</tr></tbody>
+    </table>
+
+    <a href="{{ path('vol_index') }}">back to list</a>
+
+    <a href="{{ path('vol_edit', {'id': vol.id}) }}">edit</a>
+
+    {{ include('vol/_delete_form.html.twig') }}
+{% endblock %}
+  

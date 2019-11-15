@@ -1,0 +1,8 @@
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+<fieldset class="form-group"><legend class="col-form-label required">Images</legend><div id="omra_article_images"><div class="form-group"><label for="omra_article_images_url" class="required">Url</label><div class="custom-file"><input type="file" id="omra_article_images_url" name="omra[article][images][url][]" required="required" multiple="multiple" class="custom-file-input"><label for="omra_article_images_url" class="custom-file-label"></label>
+    </div>
+</div></div></fieldset>
+
+    <button class="btn btn-warning">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

@@ -1,0 +1,354 @@
+{% extends "Frontbase.html.twig" %}
+{% block recherche %}
+<form action="volsearch" >
+	
+
+					<div class="col-md-8 banner-right">
+						<div class="sap_tabs">	
+							<div class="booking-info">
+								<h2>Réserver des billets d'avion domestiques et internationaux
+									</h2>
+							</div>
+							 <div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+								  <ul class="resp-tabs-list">
+									  <li class="resp-tab-item resp-tab-active" aria-controls="tab_item-0" role="tab">
+									  	<span>Aller(s)-retour(s)</span>
+									  </li>
+									  <li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span>Aller(s)</span>
+									  </li>
+									  <div class="clearfix">
+									  </div>
+								  </ul>		
+								  <!---->		  	 
+								 <div class="resp-tabs-container">
+									<h2 class="resp-accordion resp-tab-active" role="tab" aria-controls="tab_item-0">
+										<span class="resp-arrow">
+										</span>Return</h2>
+										<div class="tab-1 resp-tab-content resp-tab-content-active" aria-labelledby="tab_item-0" style="display:block">
+											<div class="facts">
+												<div class="booking-form">
+													
+													<script>
+														$(function() {
+															$( "#datepicker,#datepicker1" ).datepicker();
+														});
+													</script>
+													
+													<div class="online_reservation">
+															<div class="b_room">
+																<div class="booking_room">
+																	<div class="reservation">
+																		<ul>		
+																			<li class="span1_of_1 desti">
+																				 <h5>Départ
+																					</h5>
+																				 <div class="book_date">
+																					
+																						<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+	<input type="text" placeholder="" class="typeahead1 input-md form-control tt-input" required="" name="depart">
+		<input type="hidden" value="1" name="TypeVol" >
+
+																				 </div>					
+																			 </li>
+																			 <li class="span1_of_1 left desti">
+																				 <h5>Destination
+																					</h5>
+																				 <div class="book_date">
+																					<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+																					<input type="text" placeholder="Type Destination City" class="typeahead1 input-md form-control tt-input" required=""name="dest">
+																				 </div>		
+																			 </li>
+																			 <div class="clearfix"></div>
+																		</ul>
+																	</div>
+															
+																<ul>	
+																			 <li class="span1_of_3">
+																					
+																							<input class="btn btn-primary" type="submit" value="Search"
+
+style="
+    width: 25%;
+"
+																							>
+																			 </li>
+																			 <div class="clearfix"></div>
+																		</ul>
+																	</div>
+																</div>
+																<div class="clearfix"></div>
+															</div>
+													</div>
+													
+												</div>	
+											</div>
+									</div>
+
+									</form>
+									<form action="volsearch" >
+
+									<h2 class="resp-accordion" role="tab" aria-controls="tab_item-1"><span class="resp-arrow"></span>One way</h2><div class="tab-2 resp-tab-content" aria-labelledby="tab_item-1">
+										<div class="facts">
+												<div class="booking-form">
+												
+													<link rel="stylesheet" href="css/jquery-ui.css">
+													<script src="js/jquery-ui.js"></script>
+															  <script>
+																	  $(function() {
+																		$( "#datepicker,#datepicker1" ).datepicker();
+																	  });
+															  </script>
+		
+													
+													<div class="online_reservation">
+															<div class="b_room">
+																<div class="booking_room">
+																	<div class="reservation">
+																		<ul>		
+																			<li class="span1_of_1 desti">
+																				 <h5>Départ
+																					</h5>
+																				 <div class="book_date">
+																					
+																						<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+	<input type="text" placeholder="" class="typeahead1 input-md form-control tt-input" required="" name="depart">
+		<input type="hidden" value="2" name="TypeVol">
+																				 </div>					
+																			 </li>
+																			 <li class="span1_of_1 left desti">
+																				 <h5>Destination
+																					</h5>
+																				 <div class="book_date">
+																					<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+																					<input type="text" placeholder="Type Destination City" class="typeahead1 input-md form-control tt-input" required=""name="dest">
+																				 </div>		
+																			 </li>
+																			 <div class="clearfix"></div>
+																		</ul>
+																	</div>
+															
+																<ul>	
+																			 <li class="span1_of_3">
+																					
+																							<input class="btn btn-primary" type="submit" value="Search"
+
+style="
+    width: 25%;
+"
+																							>
+																			 </li>
+																			 <div class="clearfix"></div>
+																		</ul>
+																</div>
+																<div class="clearfix"></div>
+															</div>
+													</div>
+													
+												</div>	
+										</div>
+									</div> 	
+
+
+
+								  </div>	
+
+								  		<div >
+																		
+							  </div>	
+						</div>
+					</div>
+
+					</form>
+					<center>
+     <div id="reservationShow" style="display: none;">   
+                                          <input id="hide" class="btn btn-danger" value="*"style="
+    margin-left: 83%;
+    width: 10%;
+    height: 6%;
+    margin-top: -%;
+    position: absolute;
+"   onclick="hidden12()" />
+
+  <form  method ="POST" id="loginForm" name="form"  action="{{ path('email', parameters = {id:1}, relative = false) }}}}">
+        
+                      <h1 > Réservation  </h1>
+                      <div class="login-grids">
+                        <div class="login-grid-left">
+                          <fieldset id="body">
+                            <fieldset>
+                              <label for="email">Email </label>
+                              <input type="text" name="email" id="email">
+                            </fieldset>
+                            <fieldset>
+                              <label for="password">Tel</label>
+                              <input type="number" name="tel" id="password">
+                            </fieldset>
+                             <fieldset>
+                              <label for="password">nom</label>
+                              <input type="string" name="nom" id="password">
+                            </fieldset>
+                               <fieldset>
+                              <label for="password">prenom</label>
+                              <input type="string" name="pren" id="password">
+                            </fieldset>
+                 
+                               <fieldset>
+																		    <label>		Enfant(s)</label>
+																				
+																					  <select id="country" name="jeune" onchange="change_country(this.value)" class="frm-field required">
+																							<option value="1">1</option>
+																							<option value="2">2</option>         
+																							<option value="AX">3</option>
+																							<option value="AX">4</option>
+																							<option value="AX">5</option>
+																							<option value="AX">6</option>
+																					  </select>
+																				</fieldset>
+							    <fieldset>
+																		    <label>		Adulte(s)</label>
+																				
+																				  <select id="country" name="adulte" onchange="change_country(this.value)" class="frm-field required">
+																							<option value="1">1</option>
+																							<option value="2">2</option>         
+																							<option value="AX">3</option>
+																							<option value="AX">4</option>
+																							<option value="AX">5</option>
+																							<option value="AX">6</option>
+																					  </select>
+																				</fieldset>
+																				<fieldset>
+													<label>class</label>	
+																						  <select name="class" id="country" onchange="change_country(this.value)" class="frm-field required">
+			<option selected="selected" value="Economy">Economy</option>
+                <option value="Business">Business</option>
+                <option value="First">First</option>
+                <option value="Autre">Autre</option>
+																					  </select>
+																					</fieldset>
+
+							    <fieldset>
+
+
+						   <label>Départ</label>
+				<input name="from" type="date" value="Select date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Select date';}"/>
+                   </fieldset>
+
+							    <fieldset>
+
+                   	<label>Arrivée</label>
+																				
+			<input name="to" type="date" value="Select date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Select date';}"/>
+								</fieldset>											
+                            <div class="chrome-button" >
+                              <<input  style="background-color: #28a745;color: #f8f9fa;"type="submit" name="" value="Réserver"/>
+                            </div>
+                       
+                        </div>
+                      </div>
+                    </form>
+                  </div> 
+                                    </div> 
+</center>
+{% endblock %}
+{% block body %}
+    <div class="c-rooms">
+
+     {% for vol in vols %}
+         
+   
+        <div class="p-table">
+          <div class="p-table-grids">
+            <div class="col-md-3 p-table-grid">
+              <div class="p-table-grad-heading">
+                <h6>Titre</h6>
+              </div>
+              <div class="p-table-grid-info">
+              	<center>              	<h4>{{vol.article.titre}}</h4>
+</center>
+                <a href="#">
+                	<img src="images/avion.jpg" alt=""></a>
+                <div class="room-basic-info">
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 p-table-grid">
+              <div class="p-table-grad-heading">
+                <h6>Options</h6>
+              </div>
+              <div class="rate-features">
+                <ul>
+                 <h4> Type de Vol :</h4>
+
+{% if  vol.TypeVol == 1 %}
+
+                 <li>Aller(s)-retour(s) </li>
+
+{% else %}
+
+ <li>
+       
+Aller(s)
+    </li>
+
+
+{% endif %}
+
+                  <h4> Class : </h4><li>{{vol.class}}</li>
+                  <h4> date de départ : </h4><li>{{vol.article.datedep |date('Y-m-d')}} temps:{{vol.time}}</li>
+                  {% if  vol.TypeVol == 1 %}
+
+                  <h4> date d'arrivée : </h4><li>{{vol.article.datearriv |date('Y-m-d')}} temps:{{vol.timedarriver}}</li>
+                  {% endif %}
+
+
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-3 p-table-grid">
+              <div class="p-table-grad-heading">
+                <h6>Déscription</h6>
+              </div>
+              <div class="avg-rate">
+            {{vol.article.descrip}}
+              
+              </div>
+            </div>
+            <div class="col-md-3 p-table-grid">
+              <div class="p-table-grad-heading">
+
+                <h6>Prix</h6>
+              </div>
+              <div class="book-button-column">
+             <h1><span class="p-offer">{{vol.article.pix}}DT</span></h1>
+
+       <button id="show" class="btn btn-success" style="width: 100%;height: 10%;" onclick = "show54({{vol.article.id}})"/>
+         <h3 style="color: aliceblue;">Réserver</h3></button>              </div>
+            </div>
+            <div class="clearfix"> </div>
+          </div>
+        </div>
+        
+          {% endfor %}
+
+      </div>
+
+
+
+          <script type="text/javascript" >
+
+
+
+  function hidden12(){
+document.getElementById("reservationShow").style="display: none ;position: relative;" ;
+
+}
+  function show54(id){
+  	  	          $('form').attr('action', 'emailvOL/'+id);
+
+ document.getElementById("reservationShow").style="display: block ;position: relative;" ;
+
+
+
+}
+</script>
+{% endblock %}

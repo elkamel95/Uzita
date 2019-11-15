@@ -1,0 +1,100 @@
+{% extends 'Frontbase.html.twig' %}
+{% block recherche %}
+
+    
+{% endblock %}
+    {% block banner %}
+{% endblock %}
+
+{% block body %}
+<div class="banner-bottom">
+        <!-- container -->
+        <div class="container">
+            <div class="faqs-top-grids">
+                <div class="product-grids" >
+                
+                    <div class="col-md-9 product-right" style="
+    max-width: 100%;
+">
+
+
+
+                      
+                        <div class="product-right-grids">
+
+                            {%  for hotel in hot %}
+                            <div class="product-right-top">
+                                <div class="p-left" >
+                                    <div class="p-right p-right" 
+
+
+
+                                    >
+                                      
+                                        <img src="images/products/{{hotel.aticle.Media.image.name}}"
+
+style="
+    width: 100%;
+    height: 150px;
+"
+                                         > </a>
+                                    </div>
+                                </div>
+
+                                <div class="p-right">
+                                    <div class="col-md-6 p-right-left">
+                                        <a href="{{ path('detailArticle', parameters = {'id':hotel.aticle.id }, relative = false) }}
+">{{hotel.aticle.titre}}</a>
+                                        <div class="p-right-price">
+                                       {% for i in 1.. hotel.etoile  %}
+    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+{% endfor %}
+                                        </div>
+                                        <p>{{hotel.aticle.shortdesc}}</p>
+                                       
+                                    </div>
+                                    <div class="col-md-6 p-right-right">
+                                  {% if hotel.aticle.promo.promo != 'NON' %}
+
+                                        <h6>Promotion  : - {{hotel.aticle.promo.promo}}%</h6>
+                                        {% endif %}
+                                        <p></p>
+                                        {% if hotel.aticle.promo.promo != 'NON' %}
+
+                                        <span class="p-offer">
+
+                                        ${{hotel.aticle.pix-((hotel.aticle.promo.promo * hotel.aticle.pix) / 100) }}
+
+
+                                    </span>
+
+
+                                    <span class="p-last-price">${{hotel.aticle.pix}}</span>
+                                    {% else %}
+   <span class="p-offer">   ${{hotel.aticle.pix}} </span>
+
+
+
+{% endif %}
+
+
+                                    </div>
+                                    <div class="clearfix"> </div>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div> 
+                                {% endfor %}                                            
+
+                        </div>
+
+
+
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </div>
+        <!-- //container -->
+    </div>
+	
+{% endblock %}

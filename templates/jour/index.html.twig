@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Jour index{% endblock %}
+
+{% block body %}
+    <h1>Jour index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for jour in jours %}
+            <tr>
+                <td>{{ jour.id }}</td>
+                <td>{{ jour.titre }}</td>
+                <td>{{ jour.description }}</td>
+                <td>
+                    <a href="{{ path('jour_show', {'id': jour.id}) }}">show</a>
+                    <a href="{{ path('jour_edit', {'id': jour.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('jour_new',{'id':1}) }}">Create new</a>
+{% endblock %}

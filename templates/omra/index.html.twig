@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Omra index{% endblock %}
+
+{% block body2 %}
+    <h1>Omra index</h1>
+
+ <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                                <th>Titre</th>
+                <th>Pix</th>
+                <th>court déscription</th>
+                 <th>Réservation</th>
+
+   <th>image</th>
+
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for omra in omras %}
+            <tr>
+                <td>{{ omra.id }}</td>
+                                <td>{{ omra.Article.titre }}</td>
+                <td>{{ omra.Article.pix }}</td>
+                <td>{{ omra.Article.shortdesc }}</td>
+
+                <td>{{ omra.Article.reservations | length  }}
+{% if  omra.Article.reservations | length  > 0 %}
+                    <a href="{{ path('reservation_Hotel', {'id': omra.Article.id}) }}">show</a>
+
+{% endif %}
+
+
+
+
+</td>
+                               <td><img src="{{ asset('/images/products/') | imagine_filter('test') }}{{omra.Article.Media.image.name}}" />
+
+</td>
+                <td>
+                 <a href="{{ path('omra_show', {'id': omra.id}) }}">show</a>
+                    <a href="{{ path('omra_edit', {'id': omra.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('omra_new') }}">Create new</a>
+{% endblock %}

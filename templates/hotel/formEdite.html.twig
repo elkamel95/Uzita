@@ -1,0 +1,26 @@
+{{ form_start(form) }}
+ {{ form_row(form.sejour) }}
+
+                     {{ form_row(form.aticle.dest, {'label' : 'Ville'}) }}
+
+                      {{ form_row(form.aticle.titre, {'label': 'Titre'}) }}
+                      {{ form_row(form.aticle.pix, {'label': 'Prix'}) }}
+                                            {{ form_row(form.adresse) }}
+                          {{ form_row(form.etoile) }}
+
+                      {{ form_row(form.aticle.shortdesc, {'label': 'court déscripton'}) }}
+                      {{ form_row(form.aticle.descrip, {'label': 'déscripton'}) }}
+                      {{ form_row(form.aticle.datedep, {'label': 'date départ'}) }}
+
+                      {{ form_row(form.aticle.datearriv, {'label': 'date darrivée'}) }}
+                      {{ form_row(form.topHotel) }}
+                                            {{ form_row(form.aticle.topDistination) }}
+
+
+                                            {{ form_row(form.aticle.promo) }}
+                                            {{ form_row(form.aticle.Media) }}
+<fieldset class="form-group"><legend class="col-form-label required">Images</legend><div id="hotel_aticle_images"><div class="form-group"><label for="hotel_aticle_images_url" class="required" >Url</label><div class="custom-file"><input type="file" id="hotel_aticle_images_url" required ="required"name="hotel[aticle][images][url][]"  multiple="multiple" class="custom-file-input"><label for="hotel_aticle_images_url" class="custom-file-label"></label>
+    </div>
+</div></div></fieldset>
+    <button class="btn btn-warning">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

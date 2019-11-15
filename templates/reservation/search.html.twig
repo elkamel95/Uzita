@@ -1,0 +1,116 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reservation index{% endblock %}
+
+{% block body2 %}
+    <h1>Reservation {{ count }}</h1>
+
+
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Tel</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                                <th>Ref article</th>
+                                <th>Titre</th>
+                                <th>Prixs(DT)</th>
+                                <th>image</th>
+                               <th>confirmation de réservation</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+        {% for reservation in reservations %}
+            <tr>
+                <td>{{ reservation.id }}</td>
+                <td>{{ reservation.email }}</td>
+                <td>{{ reservation.tel }}</td>
+                <td>{{ reservation.nom }}</td>
+                <td>{{ reservation.prenom }}</td>
+                                <td>{{ reservation.Article.id }} 
+                                    {% if reservation.Article.hotel != null %}
+
+      <a class= "badge badge-success"  href="{{ path('detailArticle', parameters = {'id':reservation.Article.id }, relative = false) }}"> show hotel</a>
+      {% elseif reservation.Article.voyage != null  %}
+
+        {% if reservation.Article.voyage.circuit != null %}
+
+
+<a class= "badge badge-success"  href="{{ path('detailArticle', parameters = {'id':reservation.Article.id }, relative = false) }}"> show circuits</a>
+
+         {% elseif reservation.Article.voyage.transfert != null %}
+<a class= "badge badge-success"  href="{{ path('detailArticle', parameters = {'id':reservation.Article.id }, relative = false) }}"> show Transferts</a>
+{% else %}
+<a class= "badge badge-success"  href="{{ path('detailArticle', parameters = {'id':reservation.Article.id }, relative = false) }}"> show voyage</a>
+{% endif %}
+
+
+
+
+
+
+
+ {% elseif reservation.Article.vol != null  %}
+
+<a class= "badge badge-success"  href="{{ path('vol_show', parameters = {'id':reservation.Article.vol.id }, relative = false) }}"> show vol</a>
+
+
+ {% else   %}
+<a class= "badge badge-success"  href="{{ path('detailArticle', parameters = {'id':reservation.Article.id }, relative = false) }}"> show omra</a>
+
+{% endif %}
+
+</td>
+                                <td>{{ reservation.Article.titre }}</td>
+                                <td>{{ reservation.Article.pix }}</td>
+
+               <td> 
+
+{% if reservation.Article.Media != null %}
+                <img src="{{ asset('/images/products/') | imagine_filter('test') }}{{reservation.Article.Media.image.name}}" />
+{% else %}
+                <img src="{{ asset('/images/avion.jpg') | imagine_filter('test') }}" />
+
+{% endif %}
+
+</td> 
+
+
+
+                <td>
+                                        <ul><li>
+
+                    <a  class= "badge badge-success" href="{{ path('reservation_show', {'id': reservation.id}) }}">show</a>
+                </li><li>
+                    {% if reservation.IsOK ==0 %}
+                    <a class ="badge badge-danger" style="
+    background-color: #ec0000;
+" href="{{ path('reservation_edit', {'id': reservation.id}) }}">confirmer </a>
+
+                                        {% else %}
+                    <a  class= "badge badge-success"  style="
+    background-color: #00ff0a;
+"  href="{{ path('reservation_edit', {'id': reservation.id}) }}">
+
+                    c'est confirmé </a>
+
+                    {% endif %}</li></ul>
+                </td>
+
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hotel index{% endblock %}
+
+{% block body2 %}
+    <h1>Hotel  Resrvation ({{ count }})</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Réferance </th>
+                <th>Titre</th>
+
+                <th>Etoile</th>
+                <th>Adresse</th>
+                <th>TopHotel</th>
+                                <th>Réservation</th>
+
+                                <th>Image</th>
+
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for hotel in hotels %}
+            <tr>
+                                <th>{{hotel.id}}</th>
+
+                <td>{{ hotel.aticle.titre }}</td>
+                <td>{{ hotel.etoile }}</td>
+                                <td>{{ hotel.adresse }}</td>
+
+                <td>{{ hotel.topHotel ? 'Yes' : 'No' }}</td>
+                <td>{{ hotel.aticle.reservations | length  }}
+{% if  hotel.aticle.reservations | length  > 0 %}
+                    <a href="{{ path('reservation_Hotel', {'id': hotel.aticle.id}) }}">show</a>
+
+{% endif %}
+                </td>
+
+               <td> <img src="{{ asset('/images/products/') | imagine_filter('test') }}{{hotel.aticle.Media.image.name}}" />
+
+</td>
+
+                <td>
+                    <a href="{{ path('hotel_show', {'id': hotel.id}) }}">show</a>
+                    <a href="{{ path('hotel_edit', {'id': hotel.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('hotel_new') }}">Create new</a>
+{% endblock %}

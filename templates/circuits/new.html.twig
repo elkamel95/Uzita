@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New circuits{% endblock %}
+
+{% block body %}
+    <h1>Create new circuits</h1>
+
+    {{ include('circuits/_form.html.twig') }}
+
+    <a href="{{ path('circuit_index') }}">back to list</a>
+{% endblock %}

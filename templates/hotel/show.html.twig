@@ -1,0 +1,95 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hotel{% endblock %}
+
+{% block body %}
+    <h1>Hotel {{hotel.aticle.titre}} </h1>
+<div>
+    <table class="table">
+   
+            <tr>
+<td> <h3>Reéservation ({{count}})<a href="{{ path('reservation_Hotel', {'id': hotel.aticle.id}) }}"> show</a></h3>
+</td>
+            </tr>
+    </table>
+</div>
+    <table class="table">
+        <tbody>
+
+            <tr>
+                <th>Id</th>
+                <td>{{ hotel.id }}</td>
+            </tr>
+               <tr>
+                <th>Titre</th>
+                <td>{{ hotel.aticle.titre }}</td>
+            </tr>
+            <tr>
+                <th>Etoile</th>
+                <td>{{ hotel.etoile }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ hotel.adresse }}</td>
+            </tr>
+            <tr>
+                <th>TopHotel</th>
+                <td>{{ hotel.topHotel ? 'Yes' : 'No' }}</td>
+            </tr>
+                  <tr>
+                <th>Pix</th>
+                <td>{{ hotel.aticle.pix }}</td>
+            </tr>
+            <tr>
+                <th>Shortdesc</th>
+                <td>{{ hotel.aticle.shortdesc }}</td>
+            </tr>
+            <tr>
+                <th>Descrip</th>
+                <td>{{ hotel.aticle.descrip }}</td>
+            </tr>
+            <tr>
+                <th>Dest</th>
+                <td>{{ hotel.aticle.dest }}</td>
+            </tr>
+            <tr>
+                <th>Datedep</th>
+                <td>{{ hotel.aticle.datedep ? hotel.aticle.datedep|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datearriv</th>
+                <td>{{ hotel.aticle.datearriv ? hotel.aticle.datearriv|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datecreat</th>
+                <td>{{ hotel.aticle.datecreat ? hotel.aticle.datecreat|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datemodif</th>
+                <td>{{ hotel.aticle.datemodif ? hotel.aticle.datemodif|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ hotel.aticle.titre }}</td>
+            </tr>
+            <tr>   
+
+                <th>image</th>
+
+
+
+                               <td> <img src="{{ asset('/images/products/') | imagine_filter('test') }}{{hotel.aticle.Media.image.name}}" />
+
+</td> </tr>
+  
+
+        </tbody>
+    </table>
+
+   
+    <a href="{{ path('hotel_index') }}">back to list</a>
+
+    <a href="{{ path('hotel_edit', {'id': hotel.id}) }}">edit</a>
+
+    {{ include('hotel/_delete_form.html.twig') }}
+{% endblock %}

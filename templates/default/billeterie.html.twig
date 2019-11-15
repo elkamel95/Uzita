@@ -1,0 +1,597 @@
+
+{% extends 'Frontbase.html.twig' %}
+{% block body %} 
+    <!-- template -->
+<section class="static_articles">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card mb-5">
+                    <h2 class="card-header">Billetterie  </h2>
+                    <div class="card-block">
+                        <p></p><table width="98%" border="0" align="center">
+                    <tbody>
+                        <tr>
+                                <td> 
+                                 <marquee>
+                                     <img src="images/nouvelair.png" width="196" height="117">
+                                     <img src="images/2.jpg" width="196" height="117">
+                                     <img src="images/3.jpg" width="196" height="117">
+                                     <img src="images/4.jpg" width="196" height="117">
+                                     <img src="images/5.jpg" width="196" height="117">
+                                     <img src="images/6.jpg" width="196" height="117">
+                                     <img src="images/7.jpg" width="196" height="117">
+                                     <img src="images/8.png" width="196" height="117">
+                                     <img src="images/9.png" width="196" height="117">
+                                     <img src="images/10.png" width="196" height="117">
+                                 </marquee>
+                                </td>
+                         </tr>
+                    </tbody>
+            </table>
+            <p></p>
+ <p> </p>
+ <form id="frm" name="frm" method="post" action="req_ajouter_res_vol.php" onsubmit="return verifForm()">
+    <p class="Style8">&nbsp;</p>
+      <p class="Style14">Type de Vol : </p>
+        <p class="Style9">&nbsp;</p>
+        <table width="98%" border="0" align="center" bgcolor="#EEEEEE">
+          <tbody><tr>
+            <td><input type="radio" name="vol" id="radio" value="Aller-Retour" checked="checked">
+              Aller-Retour</td>
+            <td><input type="radio" name="vol" id="radio2" value="Aller simple">
+              Aller simple</td>
+            <td><input type="radio" name="vol" id="radio3" value="Multi-segments">
+              Type de vol</td>
+          </tr>
+        </tbody></table>
+        <p class="Style9">&nbsp;</p>
+        <p class="Style14">Destination : </p>
+        <p class="Style9">&nbsp;</p>
+        <table width="98%" border="0" align="center" cellpadding="5" cellspacing="0" bgcolor="#EEEEEE">
+          <tbody><tr>
+            <td valign="top" align="right"><div align="left">Classe :</div></td>
+            <td valign="top" align="left"><select name="classe" class="_select">
+                <option value="Economy">Economy</option>
+                <option value="Business">Business</option>
+                <option value="First">First</option>
+                <option value="Autre">Autre</option>
+            </select></td>
+          </tr>
+          <tr>
+            <td width="130" valign="top" align="right"><div align="left">Départ :</div></td>
+            <td valign="top" align="left"><select name="destination_depart" class="_select">
+                <option value="ABIDJAN">ABIDJAN</option>
+                <option value="ALGER">ALGER</option>
+                <option value="AMMAN">AMMAN</option>
+                <option value="AMSTERDAM">AMSTERDAM</option>
+                <option value="ATHENES">ATHENES</option>
+                <option value="BALE">BALE</option>
+                <option value="BAMAKO">BAMAKO</option>
+                <option value="BAHREIN">BAHREIN</option>
+                <option value="BARCELONE">BARCELONE</option>
+                <option value="BELGRADE">BELGRADE</option>
+                <option value="BENGHAZI">BENGHAZI</option>
+                <option value="BERLIN">BERLIN</option>
+                <option value="BEYROUT">BEYROUT</option>
+                <option value="BILBAO">BILBAO</option>
+                <option value="BORDEAUX">BORDEAUX</option>
+                <option value="BRUXELLES">BRUXELLES</option>
+                <option value="BUDAPEST">BUDAPEST</option>
+                <option value="CAIRE">CAIRE</option>
+                <option value="CASABLANCA">CASABLANCA</option>
+                <option value="COPENHAGUE">COPENHAGUE</option>
+                <option value="DAKAR">DAKAR</option>
+                <option value="DAMAS">DAMAS</option>
+                <option value="DJERBA">DJERBA</option>
+                <option value="DUBAI">DUBAI</option>
+                <option value="DUSSELDORF">DUSSELDORF</option>
+                <option value="ENNFIDHA">ENNFIDHA</option>
+                <option value="FRANKFURT">FRANKFURT</option>
+                <option value="GAFSA">GAFSA</option>
+                <option value="GENEVE">GENEVE</option>
+                <option value="HAMBOURG">HAMBOURG</option>
+                <option value="ISTAMBUL">ISTAMBUL</option>
+                <option value="JEDDAH">JEDDAH</option>
+                <option value="KOWEIT">KOWEIT</option>
+                <option value="LISBONNE">LISBONNE</option>
+                <option value="LONDRES Heathrow">LONDRES Heathrow</option>
+                <option value="LONDRES Gatwick">LONDRES Gatwick</option>
+                <option value="LUXEMBOURG">LUXEMBOURG</option>
+                <option value="LYON">LYON</option>
+                <option value="MADRID">MADRID</option>
+                <option value="MALTE">MALTE</option>
+                <option value="MANCHESTER">MANCHESTER</option>
+                <option value="MARSEILLE">MARSEILLE</option>
+                <option value="MILAN">MILAN</option>
+                <option value="MONASTIR">MONASTIR</option>
+                <option value="MOSCOU">MOSCOU</option>
+                <option value="MUNICH">MUNICH</option>
+                <option value="NANTES">NANTES</option>
+                <option value="NICE">NICE</option>
+                <option value="NOUAKCHOTT">NOUAKCHOTT</option>
+                <option value="ORAN">ORAN</option>
+                <option value="PALERME">PALERME</option>
+                <option value="PARIS">PARIS</option>
+                <option value="PRG">PRAGUE</option>
+                <option value="ROME">ROME</option>
+                <option value="SFAX">SFAX</option>
+                <option value="STOCKHOLM">STOCKHOLM</option>
+                <option value="STRASBOURG">STRASBOURG</option>
+                <option value="TABARKA">TABARKA</option>
+                <option value="TOULOUSE">TOULOUSE</option>
+                <option value="TOZEUR">TOZEUR</option>
+                <option value="TRIPOLI">TRIPOLI</option>
+                <option value="TUNIS" selected="selected">TUNIS</option>
+                <option value="VARSOVIE">VARSOVIE</option>
+                <option value="VENISE">VENISE</option>
+                <option value="VIENNE">VIENNE</option>
+                <option value="ZURICH">ZURICH</option>
+              </select>
+            </td>
+           
+          </tr>
+          <tr>
+            <td valign="top" align="right"><div align="left">Arrivée :</div></td>
+            <td valign="top" align="left"><select name="destination_arriver" class="_select">
+                <option value="ABIDJAN">ABIDJAN</option>
+                <option value="ALGER">ALGER</option>
+                <option value="AMMAN">AMMAN</option>
+                <option value="AMSTERDAM">AMSTERDAM</option>
+                <option value="ATHENES">ATHENES</option>
+                <option value="BALE">BALE</option>
+                <option value="BAMAKO">BAMAKO</option>
+                <option value="BAHREIN">BAHREIN</option>
+                <option value="BARCELONE">BARCELONE</option>
+                <option value="BELGRADE">BELGRADE</option>
+                <option value="BENGHAZI">BENGHAZI</option>
+                <option value="BERLIN">BERLIN</option>
+                <option value="BEYROUT">BEYROUT</option>
+                <option value="BILBAO">BILBAO</option>
+                <option value="BORDEAUX">BORDEAUX</option>
+                <option value="BRUXELLES">BRUXELLES</option>
+                <option value="BUDAPEST">BUDAPEST</option>
+                <option value="CAIRE">CAIRE</option>
+                <option value="CASABLANCA">CASABLANCA</option>
+                <option value="COPENHAGUE">COPENHAGUE</option>
+                <option value="DAKAR">DAKAR</option>
+                <option value="DAMAS">DAMAS</option>
+                <option value="DJERBA">DJERBA</option>
+                <option value="DUBAI">DUBAI</option>
+                <option value="DUSSELDORF">DUSSELDORF</option>
+                <option value="ENNFIDHA">ENNFIDHA</option>
+                <option value="FRANKFURT">FRANKFURT</option>
+                <option value="GAFSA">GAFSA</option>
+                <option value="GENEVE">GENEVE</option>
+                <option value="HAMBOURG">HAMBOURG</option>
+                <option value="ISTAMBUL">ISTAMBUL</option>
+                <option value="JEDDAH">JEDDAH</option>
+                <option value="KOWEIT">KOWEIT</option>
+                <option value="LISBONNE">LISBONNE</option>
+                <option value="LONDRES Heathrow">LONDRES Heathrow</option>
+                <option value="LONDRES Gatwick">LONDRES Gatwick</option>
+                <option value="LUXEMBOURG">LUXEMBOURG</option>
+                <option value="LYON">LYON</option>
+                <option value="MADRID">MADRID</option>
+                <option value="MALTE">MALTE</option>
+                <option value="MANCHESTER">MANCHESTER</option>
+                <option value="MARSEILLE">MARSEILLE</option>
+                <option value="MILAN">MILAN</option>
+                <option value="MONASTIR">MONASTIR</option>
+                <option value="MOSCOU">MOSCOU</option>
+                <option value="MUNICH">MUNICH</option>
+                <option value="NANTES">NANTES</option>
+                <option value="NICE">NICE</option>
+                <option value="NOUAKCHOTT">NOUAKCHOTT</option>
+                <option value="ORAN">ORAN</option>
+                <option value="PALERME">PALERME</option>
+                <option value="PARIS">PARIS</option>
+                <option value="PRG">PRAGUE</option>
+                <option value="ROME">ROME</option>
+                <option value="SFAX">SFAX</option>
+                <option value="STOCKHOLM">STOCKHOLM</option>
+                <option value="STRASBOURG">STRASBOURG</option>
+                <option value="TABARKA">TABARKA</option>
+                <option value="TOULOUSE">TOULOUSE</option>
+                <option value="TOZEUR">TOZEUR</option>
+                <option value="TRIPOLI">TRIPOLI</option>
+                <option value="TUNIS" selected="selected">TUNIS</option>
+                <option value="VARSOVIE">VARSOVIE</option>
+                <option value="VENISE">VENISE</option>
+                <option value="VIENNE">VIENNE</option>
+                <option value="ZURICH">ZURICH</option>
+            </select></td>
+          </tr>
+          <tr>
+            <td valign="top" align="right"><div align="left">Date de départ :</div></td>
+            <td valign="top" align="left"><input type="text" name="date_depart" id="datepickerB1" value="" size="10" style="border: 1px solid #B5B8C8; font-size: 11px margin-top: 2px;"></td>
+            
+          </tr>
+          <tr>
+            <td valign="top" align="right"><div align="left">Date de retour :</div></td>
+            <td valign="top" align="left"><input type="text" name="date_arriveree" id="datepickerB2" value="" size="10" style="border: 1px solid #B5B8C8; font-size: 11px margin-top: 2px;"></td>
+          
+           
+          </tr>
+        </tbody></table>
+        <p>&nbsp;</p>
+        <p class="Style14">Informations :</p>
+        <p>&nbsp;</p>
+        <table width="98%" border="0" bgcolor="#EEEEEE">
+     <tbody><tr>
+       <td><p>Nombre Adulte : 
+    <select onchange="makeRequest('Nbp2.php','RSelect2','Result2')" id="RSelect2" name="RSelect2">
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+    </select>
+  </p>
+   <div id="Result2"></div></td>
+     </tr>
+   </tbody></table>
+  
+  <table width="98%" border="0" bgcolor="#EEEEEE">
+    <tbody><tr>
+      <td> <p>Jeune ((19-23.99 Ans))
+   
+    <select onchange="makeRequest('Nbp4.php','RSelect4','Result4')" id="RSelect4" name="RSelect4">
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+    </select>
+  </p>
+   
+   
+  <div id="Result4"></div></td>
+    </tr>
+  </tbody></table>
+  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+  
+   <table width="98%" border="0" bgcolor="#EEEEEE">
+     <tbody><tr>
+       <td> <p>Bébé (0,23 mois)
+           <select onchange="makeRequest('Nbp5.php','RSelect1','Result1')" id="RSelect1" name="RSelect1">
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+    </select></p>
+ <div id="Result1">									</div></td>
+     </tr>
+   </tbody></table>
+   
+   
+   
+  
+  
+
+  
+  
+  
+  <table width="98%" border="0" bgcolor="#EEEEEE">
+    <tbody><tr>
+      <td> <p>Nombre Enfant : 
+    <select onchange="makeRequest('Nbp3.php','RSelect3','Result3')" id="RSelect3" name="RSelect3">
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+    </select>
+   
+   
+  </p>
+  
+   
+  <div id="Result3">									</div></td>
+    </tr>
+  </tbody></table>
+  <p>&nbsp;</p>
+  <p><span class="Style14">Information Client : </span>
+   </p><p>&nbsp;</p>
+  <p>
+</p><table width="98%" border="0" align="center" cellpadding="0" bgcolor="#EEEEEE">
+<tbody><tr>
+                                	<td valign="top" width="186" align="right"><div align="left">Civilité <span style="color:#f40817">*</span> :</div></td>
+               <td valign="top" width="195" align="left"><select id="civ" name="civ" required="">
+                                         <option value=""></option>
+                                         <option value="Mr.">Mr.</option>
+                                         <option value="Mme.">Mme.</option>
+                                         <option value="Mlle.">Mlle.</option>
+                                       </select></td>
+                </tr>
+                                <tr>
+                                	<td valign="top" width="186" align="right"><div align="left">Nom (Jeunes Mlle )<span style="color:#f40817">*</span> :</div></td>
+                                  <td valign="top" align="left"><input type="text" name="nom_b" id="nom" size="25" required="" maxlength="25"></td>
+                                </tr>
+                                <tr>
+                                	<td valign="top" width="186" align="right"><div align="left">Téléphone <span style="color:#f40817">*</span> :</div></td>
+                                  <td valign="top" align="left"><input type="text" name="tel_b" id="phone" size="25" maxlength="20" required=""></td>
+                                </tr>
+                                <tr>
+                                	<td valign="top" width="186" align="right"><div align="left">Num Passport <span style="color:#f40817">*</span> :</div></td>
+                                  <td valign="top" align="left"><input type="text" name="passport_b" id="passport" size="25" maxlength="200" required=""></td>
+                                </tr>
+                                <tr>
+                                  <td valign="top" align="right"><div align="left">Company préférée :</div></td>
+                                  <td valign="top" align="left"><input type="text" name="company_b" id="company" size="25" maxlength="200" required=""></td>
+                                </tr>
+                                <tr>
+                                  <td valign="top" align="right"><div align="left">Prénom&nbsp;<span style="color:#f40817">*</span> :</div></td>
+                                  <td valign="top" align="left"><input type="text" name="prenom_b" id="prenom" size="25" maxlength="25" required=""></td>
+                                </tr>
+                                <tr>
+                                  <td valign="top" align="right"><div align="left">Email&nbsp;<span style="color:#f40817">*</span> : </div></td>
+                                  <td valign="top" align="left"><input type="text" name="mail_b" id="email" size="25" maxlength="200" required=""></td>
+                                </tr>
+                                <tr>
+                                	<td valign="top" width="186" align="right"><div align="left">CIN :</div></td>
+                                  <td valign="top" align="left"><input name="cin_b" id="cin" value="" size="25" maxlength="25" required=""></td>
+                                </tr>
+                        </tbody></table>
+<p></p>
+  
+  <p align="center">
+     <button class="btn btn_search btn-lg" name="submit" id="submit">Envoyer <i class="fa fa-arrow-right"></i></button>
+  </p>
+                      </form>
+
+
+                        <p></p>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                               
+                <div class="box_infoline">
+    
+    <br>
+   </div>
+</div>
+        </div>
+       
+       
+    </div>
+
+</section>
+		 
+				   
+                   
+                   
+                   
+ 
+<a id="scroll-top" href="#page-top" class="scroll_top" style="">
+    <i class="fi flaticon-up-arrow-inside-circle" aria-hidden="true"></i>
+</a>
+<script type="text/javascript" src="rahaletandevents/model/js/main.js"></script>
+<script type="text/javascript" src="assets/js/client.js"></script>
+<script type="text/javascript" src="rahaletandevents/model/js/bootstrap-select2/js/select2.js"></script>
+<script type="text/javascript" src="code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" src="rahaletandevents/model/js/jquery.ui.datepicker/jquery.ui.datepicker-fr.js"></script>
+<link rel="stylesheet" href="code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script type="text/javascript" src="rahaletandevents/model/js/agence.js"></script>
+<script type="text/javascript" src="rahaletandevents/model/js/sejour.js" charset="UTF-8"></script>
+<script type="text/javascript" src="rahaletandevents/model/js/hotel.js"></script>
+<script type="text/javascript" src="rahaletandevents/model/js/billeterie.js"></script>
+<script type="text/javascript" src="rahaletandevents/model/js/visa.js"></script>
+<script type="text/javascript" src="rahaletandevents/model/js/account_fn.js"></script>
+<script type="text/javascript" src="rahaletandevents/model/js/cruise.js" charset="UTF-8"></script>
+    <div id="fb-root"></div>
+    <script type="text/javascript">
+          <!--
+            function NeRienFaire()
+         {
+          return false;
+         }
+         function AntiClickDroitImg()
+         {
+          var imgs = document.getElementsByTagName('img');
+          for(var i=0; i<imgs.length; i++)
+           imgs[i].oncontextmenu = NeRienFaire;
+         }
+            -->
+    </script>
+    <div id="calendar" style="display: none;"></div>
+    <div class="date-picker-wrapper no-shortcuts  no-topbar " style="display: none;">
+    <div class="month-wrapper">   
+        <table class="month1" cellspacing="0" border="0" cellpadding="0">      
+           <thead>           
+             <tr class="caption">               
+                 <th style="width:27px;">                   
+                     <span class="prev">&lt;                  
+                      </span>              
+                 </th>               
+                 <th colspan="5" class="month-name">              
+                 </th>              
+                 <th style="width:27px;">
+                     <span class="next">&gt;</span>
+                 </th>           
+             </tr>           
+             <tr class="week-name">
+                  <th>di</th>
+                  <th>lu</th>
+                  <th>ma</th>
+                  <th>me</th>
+                  <th>je</th>
+                  <th>ve</th>
+                  <th>sa</th>       
+             </tr>
+           </thead>       
+             <tbody>
+            </tbody>  
+        </table>
+        <div class="gap">
+          <div class="gap-top-mask"></div>
+          <div class="gap-bottom-mask"></div>
+          <div class="gap-lines">
+            <div class="gap-line">
+             <div class="gap-1"></div>
+             <div class="gap-2"></div>
+             <div class="gap-3"></div>
+            </div>
+            <div class="gap-line">
+               <div class="gap-1"></div>
+               <div class="gap-2"></div>
+               <div class="gap-3"></div>
+            </div>
+            <div class="gap-line">
+                 <div class="gap-1"></div>
+                 <div class="gap-2"></div>
+                 <div class="gap-3"></div>
+            </div>
+            <div class="gap-line">
+                 <div class="gap-1"></div>
+                 <div class="gap-2"></div>
+                 <div class="gap-3"></div>
+            </div>
+            <div class="gap-line">
+                 <div class="gap-1"></div>
+                 <div class="gap-2"></div>
+                 <div class="gap-3"></div>
+            </div>
+            <div class="gap-line">
+                 <div class="gap-1"></div>
+                 <div class="gap-2"></div>
+                 <div class="gap-3"></div>
+            </div>
+            <div class="gap-line">
+                 <div class="gap-1"></div>
+                  <div class="gap-2"></div>
+                 <div class="gap-3"></div>
+            </div>
+            <div class="gap-line">
+                 <div class="gap-1"></div>
+                 <div class="gap-2"></div>
+                 <div class="gap-3"></div>
+            </div>
+            <div class="gap-line">
+                <div class="gap-1"></div>
+                <div class="gap-2"></div>
+                <div class="gap-3"></div>
+             </div>
+            <div class="gap-line">
+                 <div class="gap-1"></div>
+                 <div class="gap-2"></div>
+                 <div class="gap-3"></div>
+            </div>
+            <div class="gap-line">
+               <div class="gap-1"></div>
+               <div class="gap-2"></div>
+               <div class="gap-3"></div>
+            </div>
+            <div class="gap-line">
+                 <div class="gap-1"></div>
+                 <div class="gap-2"></div>
+                 <div class="gap-3"></div>
+            </div>
+            <div class="gap-line">
+                <div class="gap-1"></div>
+                <div class="gap-2"></div>
+                <div class="gap-3"></div>
+            </div>
+            <div class="gap-line">
+                <div class="gap-1"></div>
+                 <div class="gap-2"></div>
+                <div class="gap-3"></div>
+            </div>
+            <div class="gap-line">
+                 <div class="gap-1"></div>
+                 <div class="gap-2"></div>
+                 <div class="gap-3"></div>
+            </div>
+            <div class="gap-line">
+               <div class="gap-1"></div>
+               <div class="gap-2"></div>
+               <div class="gap-3"></div>
+            </div>
+            <div class="gap-line">
+               <div class="gap-1"></div>
+               <div class="gap-2"></div>
+               <div class="gap-3"></div>
+            </div>
+            <div class="gap-line">
+                 <div class="gap-1"></div>
+                 <div class="gap-2"></div>
+                 <div class="gap-3"></div>
+            </div>
+            <div class="gap-line">
+                <div class="gap-1"></div>
+                <div class="gap-2"></div>
+                <div class="gap-3"></div>
+            </div>
+            <div class="gap-line">
+                 <div class="gap-1"></div>
+                 <div class="gap-2"></div>
+                 <div class="gap-3"></div>
+            </div>
+          </div>
+        </div>
+          <table class="month2" cellspacing="0" border="0" cellpadding="0">   
+             <thead>   
+              <tr class="caption">      
+                  <th style="width:27px;"><span class="prev">&lt;</span> </th>       
+                  <th colspan="5" class="month-name"> </th>      
+                  <th style="width:27px;"><span class="next">&gt;</span>  </th>  
+              </tr>   
+              <tr class="week-name">
+                  <th>di</th>
+                  <th>lu</th>
+                  <th>ma</th>
+                  <th>me</th>
+                  <th>je</th>
+                  <th>ve</th>
+                  <th>sa</th>  
+              </tr>
+            </thead>
+              <tbody>
+              </tbody>
+          </table>
+<div style="clear:both;height:0;font-size:0;">
+</div>
+<div class="time">
+<div class="time1">
+</div>
+<div class="time2">
+</div>
+</div>
+<div style="clear:both;height:0;font-size:0;">
+</div>
+</div>
+
+<div class="date-range-length-tip">
+</div>
+</div>
+		{% endblock %}
+

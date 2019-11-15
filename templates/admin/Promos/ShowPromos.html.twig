@@ -1,0 +1,66 @@
+{% extends "index.html.twig" %}
+    {% block table %}                             
+                         <div class="col-xl-9 col-lg-12 col-md-6 col-sm-12 col-12">
+                                <div class="card">
+                                    <h5 class="card-header">Recent Orders</h5>
+                                    <div class="card-body p-0">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                 
+                                                 <thead>
+            <tr>
+             
+                <th class="border-0">image</th>
+                <th class="border-0">Actions</th>
+            </tr>
+        </thead>
+                                                <tbody>
+                                                         {% for item in Promos %}
+            <tr>
+            
+                
+
+<td><div class="m-r-10"><img src="{{asset( item.image.getWebPath() )}}" alt="user" class="rounded" style="
+    width: 50%;
+"></div>
+
+                                                    
+                                                      
+                                                
+</td>
+              <td>    
+    <form action="{{ path('administrateurRemovePromos', {'id': item.id}) }}" method="post">
+ 
+    {# Ici j'ai écrit le bouton de soumission à la main #}
+    <input type="submit" value="Supprimer" class="btn btn-danger" />
+    {# Ceci va générer le champ CSRF #}
+  </form>
+  <form action="{{ path('administrateurUpdatePromos', {'id': item.id}) }}" method="post">
+ 
+    {# Ici j'ai écrit le bouton de soumission à la main #}
+    <input type="submit" value="Modifier" class="btn btn-danger" />
+    {# Ceci va générer le champ CSRF #}
+  </form>
+ </td>
+
+
+     
+
+                                                 
+                                                 
+
+                                                    </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+                                            </table>
+
+                                </div>
+                                    </div>
+                                </div>
+                            </div>   
+                            
+                   
+                            
+                            
+                            {% endblock %}

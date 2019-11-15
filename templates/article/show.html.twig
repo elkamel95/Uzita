@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Article{% endblock %}
+
+{% block body %}
+    <h1>Article</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ article.id }}</td>
+            </tr>
+            <tr>
+                <th>Pix</th>
+                <td>{{ article.pix }}</td>
+            </tr>
+            <tr>
+                <th>Shortdesc</th>
+                <td>{{ article.shortdesc }}</td>
+            </tr>
+            <tr>
+                <th>Descrip</th>
+                <td>{{ article.descrip }}</td>
+            </tr>
+            <tr>
+                <th>Dest</th>
+                <td>{{ article.dest }}</td>
+            </tr>
+            <tr>
+                <th>Datedep</th>
+                <td>{{ article.datedep ? article.datedep|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datearriv</th>
+                <td>{{ article.datearriv ? article.datearriv|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datecreat</th>
+                <td>{{ article.datecreat ? article.datecreat|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datemodif</th>
+                <td>{{ article.datemodif ? article.datemodif|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ article.titre }}</td>
+            </tr>
+            <tr>
+                <th>TopDistination</th>
+                <td>{{ article.topDistination ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('article_index') }}">back to list</a>
+
+    <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
+
+    {{ include('article/_delete_form.html.twig') }}
+{% endblock %}

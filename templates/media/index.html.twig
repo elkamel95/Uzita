@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Media index{% endblock %}
+
+{% block body %}
+    <h1>Media index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>UpdatedAt</th>
+                <th>Image.name</th>
+                <th>Image.originalName</th>
+                <th>Image.mimeType</th>
+                <th>Image.size</th>
+                <th>Image.dimensions</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <a href="{{ path('media_new') }}">Create new</a>
+{% endblock %}

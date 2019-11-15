@@ -1,0 +1,70 @@
+{% extends 'Frontbase.html.twig' %}
+{% block ButtonSerch%}
+{% block TitreRecherche %}
+   
+						{% endblock %}
+{% endblock %}
+	{% block banner %}
+{% endblock %}
+
+		
+{% block body %} 
+ <body>
+  <!--header-->
+  
+  <!--//header-->
+  <!-- banner-bottom -->
+  <div class="banner-bottom">
+    <!-- container -->
+    <div class="container">
+    
+      <div class="faqs-top-grids">
+ 
+          <div class="contact-grids">
+            <div class="col-md-7 contact-para">
+              <h5>Contact Form</h5>
+              <form>
+                <div class="grid-contact">
+                  <div class="col-md-6 contact-grid">
+                    <p>First Name</p>   
+                    <input type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">            
+                    </div>
+                  <div class="col-md-6 contact-grid">
+                    <p>Last Name</p>    
+                    <input type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">            
+                    </div>
+                  <div class="clearfix"> </div>
+                </div>
+                <div class="grid-contact">
+                  <div class="col-md-6 contact-grid">
+                  <p>Email</p>            
+                    <input type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">              
+                  </div>
+                  <div class="col-md-6 contact-grid">           
+                  <p>Phone</p>            
+                    <input type="text" value="" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">              
+                    </div>
+                  <div class="clearfix"> </div>
+                </div>
+                  <p class="your-para">Message</p>
+                  <textarea cols="77" rows="6" value=" " onfocus="this.value='';" onblur="if (this.value == '') {this.value = '';}"></textarea>
+                    <div class="send">
+                      <input type="submit" value="Send">
+                    </div>
+              </form>
+            </div>
+       
+            <div class="clearfix"> </div>
+          </div>
+      </div>
+    </div>
+    <!-- //container -->
+  </div>
+
+
+
+
+</body>
+     
+		{% endblock %}
+

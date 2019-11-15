@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Jour{% endblock %}
+
+{% block body %}
+    <h1>Jour</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ jour.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ jour.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ jour.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('jourtransfert_index') }}">back to list</a>
+
+    <a href="{{ path('jourtransfert_edit', {'id': jour.id}) }}">edit</a>
+
+    {{ include('jourTransfert/_delete_form.html.twig') }}
+{% endblock %}

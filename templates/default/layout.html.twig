@@ -1,0 +1,565 @@
+
+<head>
+{% block title %}
+		<title>Uzita Travel</title>
+		<!-- Custom Theme files -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="keywords" content="Govihar Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+			Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design">
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		<!-- //Custom Theme files -->
+		<link href="{{asset('css/bootstrap.css')}}" type="text/css" rel="stylesheet" media="all">
+		<link href="{{asset('css/style.css')}}" type="text/css" rel="stylesheet" media="all">
+		<link rel="stylesheet" href="{{asset('css/flexslider.css')}}" type="text/css" media="screen">
+		<link type="text/css" rel="stylesheet" href="{{asset('css/JFFormStyle-1.css')}}">
+				<link type="text/css" rel="stylesheet" href="{{asset('css/footerTyp1.css')}}">
+				<link href="{{asset('css/styl.css" type="text/css')}}" rel="stylesheet" media="all">
+		<link href="{{asset('css/styl.css')}}" type="text/css" rel="stylesheet" media="all">
+		<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Alex+Brush" rel="stylesheet">
+	
+		<link rel="stylesheet" href="{{asset('css/open-iconic-bootstrap.min.css')}}">
+		<link rel="stylesheet" href="{{asset('css/animate.css')}}">
+		
+		<link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
+		<link rel="stylesheet" href="{{asset('css/owl.theme.default.min.css')}}">
+		<link rel="stylesheet" href="{{asset('css/magnific-popup.css')}}">
+	
+		<link rel="stylesheet" href="{{asset('css/aos.css')}}">
+	
+		<link rel="stylesheet" href="{{asset('css/ionicons.min.css')}}">
+	
+		<link rel="stylesheet" href="{{asset('css/bootstrap-datepicker.css')}}">
+		<link rel="stylesheet" href="{{asset('css/jquery.timepicker.css')}}">
+	
+		
+		<link rel="stylesheet" href="{{asset('css/flaticon.css')}}">
+		<link rel="stylesheet" href="{{asset('css/icomoon.css')}}">
+		<!-- js -->
+
+		<script src="{{asset('js/jquery.min.js')}}"></script>
+		<script src="{{asset('js/modernizr.custom.js')}}"></script>
+		<!-- //js -->
+		<!-- fonts -->
+		<link href="//fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,700,500italic,700italic,900,900italic" rel="stylesheet" type="text/css">
+		<link href="//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic" rel="stylesheet" type="text/css">
+		<!-- //fonts -->	
+		<script type="text/javascript">
+				$(document).ready(function () {
+					$('#horizontalTab').easyResponsiveTabs({
+						type: 'default', //Types: default, vertical, accordion           
+						width: 'auto', //auto or any width like 600px
+						fit: true   // 100% fit in a container
+					});
+				});
+			</script>
+		<!--pop-up-->
+		<script src="{{asset('js/menu_jquery.js')}}"></script>
+		<!--//pop-up-->	
+		<style>@-webkit-keyframes marqueeAnimation-6118952  { 100%  {margin-left:-272px}}</style>
+		{% endblock %}
+		</head>
+		<body>
+        <style>
+p.ex1 {
+  max-width: 200px;
+}
+</style>
+			<!--header-->
+		{% block logo %} 
+			<div class="header">
+				<div class="container">
+					<div class="header-grids">
+						
+						<div class="logo">
+							<h1><a href="{{ path('index')}}"><span><img src="images/Logo/logo.png" style="
+								width: 20%;
+								margin-left: 40%;
+								margin-top: -6%;
+								"></span></a></h1>
+						</div>
+						<!--navbar-header-->
+				
+					<div class="nav-top">
+						<div class="top-nav" style="
+    margin: 0;
+">
+							<span class="menu"><img src="images/menu.png" alt=""></span>
+							<ul class="nav1">
+									<li class="active"><a href="{{ path('index')}}">Acceuil</a></li>						
+
+								<li ><a href="{{path('uzitaTravel')}}">Uzita Travel</a></li>	
+					
+								<li class="dropdown open">
+										<a onclick="myFunction2()" class="dropbtn2" href="javascript:MyFunction();" data-toggle="dropdown" aria-expanded="true"><b style="font-weight: 100;">Voyage  </b></a>
+										<ul style="
+										background-color: #ffffff;
+										" id="myDropdown2" class="dropdown-content">
+											<li>
+												<a href="{{ path('Voyage', parameters = {id:'TUNISIE'})}}"> en Tunisie</a>
+											</li>
+											<li>
+												<a href="{{ path('Voyage', parameters = {id:'ETRANGER'})}}"> à l'étranger</a>
+											</li>
+										</ul>
+									</li>
+								<li><a href="{{ path('hotel')}}">Hotels</a></li>
+								<li><a href="{{ path('vols')}}">Vols</a></li>
+
+								<li class="dropdown open">
+										<a onclick="myFunction()" class="dropbtn" href="javascript:MyFunction();" data-toggle="dropdown" aria-expanded="true"><b style="font-weight: 100;">Excursion </b></a>
+										<ul style="
+										background-color: #ffffff;
+										" id="myDropdown" class="dropdown-content">
+											<li>
+												<a   href="{{ path('circuits')}}"> circuits</a>
+											</li>
+											<li>
+												<a href="{{ path('transfert')}}"> Transfert</a>
+											</li>
+										</ul>
+									</li>
+								<li><a href="{{path('omra')}}">OMRA</a></li>
+								<li><a href="{{ path('promo')}}">Promos</a></li>
+								<li><a href="{{ path('contact')}}">contact</a></li>
+						
+							</ul>
+							<div class="clearfix"> </div>
+							<!-- script-for-menu -->
+									 <script> 
+									   $( "span.menu" ).click(function() {
+										 $( "ul.nav1" ).slideToggle( 300, function() {
+										 // Animation complete.
+										  });
+										 });
+									
+									</script>
+								<!-- /script-for-menu -->
+						</div>
+					
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+			</div>
+		{% endblock %}
+			<!--//header-->
+			<!-- banner -->
+	{% block banner %}
+			<div class="banner">
+				<!-- container -->
+				<div class="container">
+					<div class="col-md-4 banner-left">
+						        
+						<section class="slider2">
+							
+							<div class="flexslider">
+								
+							<div class="flex-viewport" style="overflow: hidden; position: relative;"><ul class="slides" style="width: 1400%; transition-duration: 0.6s; transform: translate3d(-1050px, 0px, 0px);">
+
+{% for art in article %}
+{% if art.Media != null %}
+
+
+
+								<li class="clone" style="width: 350px; float: left; display: block;">	
+										<div class="slider-info">
+									<a href="{{ path('detailArticle', parameters = {'id':art.id }, relative = false) }}">		<img src="images/products/{{art.Media.image.name}}" style="height:466px" alt=""/></a>
+										</div>
+									</li>
+{% endif %}
+						    {% endfor %}						    
+
+
+								</ul>
+							</div>
+							
+							<ul class="flex-direction-nav"><li><a class="flex-prev" href="#">Previous</a></li><li><a class="flex-next" href="#">Next</a></li></ul></div>
+						</section>
+
+						<!--FlexSlider-->
+					</div>
+					{% block recherche %}
+    <div class="col-md-8 banner-right">
+				<div class="sap_tabs">	
+					<div class="booking-info about-booking-info">
+						<h2>{% block TitreRecherche %}
+						    
+						{% endblock %}</h2>
+					</div>
+					<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">	
+									<div class="facts about-facts train-facts">
+										<div class="booking-form train-form">
+										<link rel="stylesheet" href="css/jquery-ui.css" />
+											
+											<script>
+												$(function() {
+													$( "#datepicker,#datepicker1" ).datepicker();
+												});
+											</script>
+											
+											<div class="online_reservation">
+													<div class="b_room">
+														<div class="booking_room">
+																	{% block ButtonSerch%}
+											<form action="{{ path('hotel', parameters = [1], relative = false) }}
+">
+															<div class="reservation">
+																<ul>		
+																	<li  class="span1_of_1 desti about-desti">
+																		 <h5>Destination</h5>
+																		 <div class="book_date">
+																				<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+																				<input type="text" placeholder="PAYS/VILLE" class="typeahead1 input-md form-control tt-input" required="">
+																		 </div>					
+																	 </li>
+																</ul>
+															</div>
+
+															<div class="reservation">
+																<ul>
+														<div class="col-md-4 banner-bottom-grid">
+	
+																<div>
+																	 <li  class="span1_of_1">
+																		 <h5>Date Debut</h5>
+																		 <div class="book_date">
+																			<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+																			<input type="date" value="Select date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Select date';}">
+																		 </div>		
+																	 </li><br>
+																	 <br>
+																	 <li  class="span1_of_1 left" style="
+    margin-left: -0.4%;
+">
+																		 <h5>Date Fin</h5>
+																		 <div class="book_date">
+																				<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+																				<input type="date" value="Select date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Select date';}">
+																		 </div>					
+																	 </li>
+																	 </div>
+                                                                </div> 
+                 <div class="col-md-4 banner-bottom-grid">
+
+																	<li class="span1_of_1 left h-child">
+																			 <h5>Etoiles</h5>
+																		
+																		 <div class="section_room">
+																		
+					                <div class="h-class">
+							
+						          	<div class="hotel-price">
+								<label class="check">
+									<input type="radio" name="categorie_rech" value="1000" checked="">
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="starTextLabel">tous</span>
+								</label>
+							</div>
+							<div class="hotel-price">
+								<label class="check">
+									<input type="radio" name="categorie_rech" value="5">
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="starTextLabel">5 Etoiles</span>
+								</label>
+							</div>
+							<div class="hotel-price">
+								<label class="check">
+									<input type="radio" name="categorie_rech" value="4">
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="starTextLabel">4 Etoiles</span>
+								</label>
+							</div>
+							<div class="hotel-price">
+								<label class="check">
+									<input type="radio" name="categorie_rech" value="3">
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="starTextLabel">3 Etoiles</span>
+								</label>
+							</div>
+							
+							
+						</div>
+																		 </div>	
+																	</li>
+														</div>
+																	 <div class="clearfix"></div>
+																</ul>
+															</div>
+															<div class="reservation">
+																<ul>
+																	
+																	<div class="clearfix"></div>
+																</ul>
+															</div>
+</form>
+
+												
+{% endblock %}
+
+
+														</div>
+														<div class="clearfix"></div>
+													</div>
+											</div>
+										
+										</div>	
+									</div>
+					</div>	
+				</div>
+			</div>
+
+    
+
+
+
+{% endblock %}
+					<div class="clearfix"> </div>
+				</div>
+				<!-- //container -->
+			</div>
+			
+			<!-- //banner -->
+			<div class="example1">
+			<strong>UZITA TRAVEL  Your Strong Partner In Tunisia </strong>  
+				</div>
+	        {% endblock %}
+			{% block body %}
+			
+				 {% endblock %}
+			  {% block footer %}
+				<footer class="ftco-footer ftco-bg-dark ftco-section" 
+style="
+							background: url(images/bg_site1.jpg)no-repeat;
+						">
+				   <div class="container"  style="color: white">
+					 <div class="row mb-5" >
+						 <div class="col-md-3" style="color: black">
+							 <div class="ftco-footer-widget mb-4">
+							  <h2 class="ftco-heading-2" style="color: #f87f00">Site Maps</h2>
+							  <ul class="list-unstyled">
+								<li><a href="{{ path('hotel')}}" class="py-2 d-block" style="color: black">Hotels</a></li>
+								<li><a href="#" class="py-2 d-block" style="color: black">Excursion</a></li>
+								<li><a href="voyage" class="py-2 d-block" style="color: black">Voyage</a></li>
+								<li><a href="{{ path('vols')}}" class="py-2 d-block" style="color: black">Vols</a></li>
+								<li><a href="{{ path('omra')}}" class="py-2 d-block" style="color: black">OMRA</a></li>
+								<li><a href="{{ path('promo')}}" class="py-2 d-block" style="color: black">Promos</a></li>
+							  </ul>
+							</div>
+						  </div>
+					 <div class="col-md" style="color: black">
+						 
+						 <div class="ftco-footer-widget mb-4">
+						   <h2 class="ftco-heading-2" style="color: #f87f00">Uzirta Travel</h2>
+						   <p style="color: black">Uzita Travel est une équipe de professionnels qui ont de l'expérience dans le voyage individuel et en groupe.</p>
+						 </div>
+					   </div>
+					 
+					 <div class="col-md" style="color: black">
+						  <div class="ftco-footer-widget mb-4">
+						   <h2 class="ftco-heading-2" style="color: #f87f00">Informations Utiles</h2>
+						   <ul class="list-unstyled">
+							 <li><a href="#" class="py-2 d-block" style="color: black">Qui Sommes-Nous?</a></li>
+							 <li><a href="#" class="py-2 d-block" style="color: black">Conditions de Ventes</a></li>
+							
+						   </ul>
+						 </div>
+					   </div>
+					 <div class="col-md" style="color: black">
+						  <div class="ftco-footer-widget mb-4">
+						   <h2 class="ftco-heading-2" style="color: #f87f00">Contact</h2>
+						   <ul class="list-unstyled">
+							 <li><a href="#" class="py-2 d-block" style="color: black">Avenue de la republique, monastir 5000</a></li>
+							 <li><a href="#" class="py-2 d-block" style="color: black">+216 73 907 317</a></li>
+							 <li><a href="#" class="py-2 d-block" style="color: black">+216 98 723 924</a></li>
+							 <li><a href="#" class="py-2 d-block" style="color: black"> info@uzitatraveltunisia.com</a></li>
+						   </ul>
+						 </div>
+					   </div>
+				 
+					</div>
+					 
+				 <div class="row">
+					
+					   <div class="col-md-12 text-center" style="margin-left:-15%">
+			 
+		                  <p style="color: black; "><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+			                 Copyright &copy;<script >document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="http://www.media-plus.tn/" target="_blank" style="color: black">Media-Plus</a>
+			                  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+					   </div>
+			 </div>
+				   
+			 
+				   </div>
+
+				 </footer>
+                 {% endblock %}
+				 
+			
+
+
+			<script type="text/javascript"></script>
+			<script defer="" src="{{asset('js/jquery.flexslider.js')}}"></script>
+			<script src="{{asset('js/easyResponsiveTabs.js')}}" type="text/javascript"></script>
+			<script src="{{asset('js/jquery-ui.js')}}"></script>
+			<script type="text/javascript" src="{{asset('js/script.js')}}"></script>
+			<script type="text/javascript">
+				$(function(){
+					SyntaxHighlighter.all();
+					});
+					$(window).load(function(){
+					$('.flexslider').flexslider({
+					animation: "slide",
+					start: function(slider){
+					$('body').removeClass('loading');
+					}
+					});
+				});
+			</script>		
+			<style>
+			
+				
+				
+				
+				.dropdown {
+				  position: relative;
+				  display: inline-block;
+				}
+				
+				.dropdown-content {
+				  display: none;
+				  position: absolute;
+				  background-color: #f1f1f1;
+				  min-width: 160px;
+				  overflow: auto;
+				  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+				  z-index: 1;
+				}
+				
+				.dropdown-content a {
+				  color: black;
+				  padding: 12px 16px;
+				  text-decoration: none;
+				  display: block;
+				}
+				
+				.dropdown a:hover {background-color: #ddd;}
+				
+				.show {display: block;}
+				</style>
+				
+				
+				<script>
+				/* When the user clicks on the button, 
+				toggle between hiding and showing the dropdown content */
+				function myFunction() {
+				  document.getElementById("myDropdown").classList.toggle("show");
+				}
+				
+				// Close the dropdown if the user clicks outside of it
+				window.onclick = function(event) {
+				  if (!event.target.matches('.dropbtn')) {
+					var dropdowns = document.getElementsByClassName("dropdown-content");
+					var i;
+					for (i = 0; i < dropdowns.length; i++) {
+					  var openDropdown = dropdowns[i];
+					  if (openDropdown.classList.contains('show')) {
+						openDropdown.classList.remove('show');
+					  }
+					}
+				  }
+				}
+				function myFunction2() {
+				  document.getElementById("myDropdown2").classList.toggle("show");
+				}
+				
+				// Close the dropdown if the user clicks outside of it
+				window.onclick = function(event) {
+				  if (!event.target.matches('.dropbtn2')) {
+					var dropdowns = document.getElementsByClassName("dropdown-content2");
+					var i;
+					for (i = 0; i < dropdowns.length; i++) {
+					  var openDropdown = dropdowns[i];
+					  if (openDropdown.classList.contains('show')) {
+						openDropdown.classList.remove('show');
+					  }
+					}
+				  }
+				}
+				</script>
+				<style>
+					.example1 {
+					 height: 50px;	
+					 overflow: hidden;
+					 position: relative;
+					}
+					.example1 strong {
+						font-size: 3em;
+    color: #f87f00;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    line-height: 50px;
+    text-align: center;
+    font-family: none;
+					 /* Starting position */
+					 -moz-transform:translateX(100%);
+					 -webkit-transform:translateX(100%);	
+					 transform:translateX(100%);
+					 /* Apply animation to this element */	
+					 -moz-animation: example1 15s linear infinite;
+					 -webkit-animation: example1 15s linear infinite;
+					 animation: example1 15s linear infinite;
+					}
+					/* Move it (define the animation) */
+					@-moz-keyframes example1 {
+					 0%   { -moz-transform: translateX(100%); }
+					 100% { -moz-transform: translateX(-100%); }
+					}
+					@-webkit-keyframes example1 {
+					 0%   { -webkit-transform: translateX(100%); }
+					 100% { -webkit-transform: translateX(-100%); }
+					}
+					@keyframes example1 {
+					 0%   { 
+					 -moz-transform: translateX(100%); /* Firefox bug fix */
+					 -webkit-transform: translateX(100%); /* Firefox bug fix */
+					 transform: translateX(100%); 		
+					 }
+					 100% { 
+					 -moz-transform: translateX(-100%); /* Firefox bug fix */
+					 -webkit-transform: translateX(-100%); /* Firefox bug fix */
+					 transform: translateX(-100%); 
+					 }
+					}
+					</style>
+					
+   <script>
+
+        $( "#clickme" ).click(function() {
+        $( "#book" ).animate({
+        opacity: 0.25,
+        left: "+=50",
+        height: "toggle"
+        }, 5000, function() {
+        // Animation complete.
+          });
+         });
+   </script>
+  </div>
+  
+</body>

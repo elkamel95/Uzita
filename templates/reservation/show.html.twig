@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reservation{% endblock %}
+
+{% block body %}
+    <h1>Reservation</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ reservation.id }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ reservation.email }}</td>
+            </tr>
+            <tr>
+                <th>Tel</th>
+                <td>{{ reservation.tel }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ reservation.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prenom</th>
+                <td>{{ reservation.prenom }}</td>
+            </tr>
+<tr>
+                                   <th>confirmation de réservation</th>
+
+             <td>
+
+                    {% if reservation.IsOK ==0 %}
+                    <a href="{{ path('reservation_edit', {'id': reservation.id}) }}">confirmer </a>
+
+                                        {% else %}
+                    <a href="{{ path('reservation_edit', {'id': reservation.id}) }}">c'est confirmé </a>
+
+                    {% endif %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('reservation_index') }}">back to list</a>
+
+    <a href="{{ path('reservation_edit', {'id': reservation.id}) }}">edit</a>
+
+    {{ include('reservation/_delete_form.html.twig') }}
+{% endblock %}

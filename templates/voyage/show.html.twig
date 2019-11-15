@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Voyage{% endblock %}
+
+{% block body %}
+    <h1>Voyage</h1>
+
+  <table class="table">
+        <tbody>
+
+            <tr>
+                <th>Id</th>
+                <td>{{ voyage.id  }}</td>
+            </tr>
+               <tr>
+                <th>Titre</th>
+                <td>{{ voyage.Article.titre }}</td>
+            </tr>
+        
+     
+          
+                  <tr>
+                <th>Pix</th>
+                <td>{{ voyage.Article.pix }}</td>
+            </tr>
+            <tr>
+                <th>Shortdesc</th>
+                <td>{{ voyage.Article.shortdesc }}</td>
+            </tr>
+            <tr>
+                <th>Descrip</th>
+                <td>{{ voyage.Article.descrip }}</td>
+            </tr>
+            <tr>
+                <th>Dest</th>
+                <td>{{ voyage.Article.dest }}</td>
+            </tr>
+            <tr>
+                <th>Datedep</th>
+                <td>{{ voyage.Article.datedep ? voyage.Article.datedep|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datearriv</th>
+                <td>{{voyage.Article.datearriv ? voyage.Article.datearriv|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datecreat</th>
+                <td>{{voyage.Article.datecreat ? voyage.Article.datecreat|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datemodif</th>
+                <td>{{ voyage.Article.datemodif ? voyage.Article.datemodif|date('Y-m-d') : '' }}</td>
+            </tr>
+       
+            <tr>   
+
+                <th>image</th>
+
+
+
+                               <td> <img src="{{ asset('/images/products/') | imagine_filter('test') }}{{voyage.Article.Media.image.name}}" />
+
+</td> </tr>
+  
+
+        </tbody>
+    </table>
+
+    <a href="{{ path('voyage_index') }}">back to list</a>
+
+    <a href="{{ path('voyage_edit', {'id': voyage.id}) }}">edit</a>
+
+    {{ include('voyage/_delete_form.html.twig') }}
+{% endblock %}
+
+
+   

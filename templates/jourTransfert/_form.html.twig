@@ -1,0 +1,40 @@
+
+{{ form_start(form, {'action': path('jourtransfert_new',{'idV':idV}), 'method': 'POST'}) }}
+    <div class="my-custom-class-for-errors">
+        {{ form_errors(form) }}
+    </div>
+
+    <div class="row">
+        <div class="col">
+              {{ form_row(form.titre, {'label': 'Jour'}) }}
+        </div>
+        <div class="col" id="some-custom-id">
+            {{ form_row(form.description) }}
+        </div>
+           <div class="col" id="some-custom-id">
+            {{ form_row(form.details.ltineaire) }}
+        </div>
+           <div class="col" id="some-custom-id">
+      {{ form_row(form.details.horaire) }}
+
+        </div>
+           <div class="col" id="some-custom-id">
+                        {{ form_row(form.details.Destination) }}
+
+        </div>
+    </div>
+    <div class="container">
+
+    <div class="row justify-content-md-center">
+        <div class="col-sm-2" >
+        	            <a href="{{ path('jourtransfert_index') }}"class="btn btn-info">{{ button_label|default('close') }}</a>
+
+</div>
+    <div class="col-sm-6" >
+    	        <button class="btn btn-success">{{ button_label|default('Save') }}</button>
+
+</div>
+    </div>
+</div>
+
+{{ form_end(form) }}

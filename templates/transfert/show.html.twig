@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Transfert{% endblock %}
+
+{% block body %}
+    <h1>Transfert</h1>
+
+  <table class="table">
+        <tbody>
+
+            <tr>
+                <th>Id</th>
+                <td>{{ voyage.id  }}</td>
+            </tr>
+               <tr>
+                <th>Titre</th>
+                <td>{{ voyage.Article.titre }}</td>
+            </tr>
+        
+     
+          
+                  <tr>
+                <th>Pix</th>
+                <td>{{ voyage.Article.pix }}</td>
+            </tr>
+            <tr>
+
+        <tr>
+                <th>Durée</th>
+                <td>{{ voyage.transfert.duree }}</td>
+            </tr>
+            <tr>
+     <th>kilomètre(km)</th>
+                <td>{{ voyage.transfert.kilometre }}</td>
+            </tr>
+            <tr>
+     <th>prix comprend</th>
+                <td>{{ voyage.transfert.prixcomprend }}</td>
+            </tr>
+            <tr>
+
+                    
+
+                <th>Shortdesc</th>
+                <td>{{ voyage.Article.shortdesc }}</td>
+            </tr>
+            <tr>
+                <th>Descrip</th>
+                <td>{{ voyage.Article.descrip }}</td>
+            </tr>
+                    <tr>
+                <th>Shortdesc</th>
+                <td>{{ voyage.circuit.prixIncluant }}</td>
+            </tr>
+            <tr>
+                <th>Descrip</th>
+                <td>{{ voyage.circuit.prixNincusPas }}</td>
+            </tr>
+          
+            <tr>
+                <th>Datedep</th>
+                <td>{{ voyage.Article.datedep ? voyage.Article.datedep|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Datearriv</th>
+                <td>{{voyage.Article.datearriv ? voyage.Article.datearriv|date('Y-m-d') : '' }}</td>
+            </tr>
+     
+       
+            <tr>   
+
+                <th>image</th>
+
+
+
+                               <td> <img src="{{ asset('/images/products/') | imagine_filter('test') }}{{voyage.Article.Media.image.name}}" />
+
+</td> </tr>
+  
+
+        </tbody>
+    </table>
+
+    <a href="{{ path('transfert_index') }}">back to list</a>
+
+    <a href="{{ path('transfert_edit', {'id': voyage.id}) }}">edit</a>
+
+    {{ include('transfert/_delete_form.html.twig') }}
+{% endblock %}
+
+
+   

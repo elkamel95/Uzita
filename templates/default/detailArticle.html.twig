@@ -1,0 +1,272 @@
+
+{% extends 'Frontbase.html.twig' %}
+
+    {% block banner %}
+{% endblock %}
+{% block body %} 
+    <!-- template -->
+
+<div class="banner-bottom">
+    <!-- container -->
+    <div class="container">
+
+
+      <div class="faqs-top-grids">
+        <!--single-page-->
+        <div class="single-page">
+            <div class="col-md-8 single-gd-lt">
+        
+              <div class="flexslider">
+                      
+              <div class="flex-viewport" style="overflow: hidden; position: relative;">
+
+
+                <ul class="slides" style="width: 4200%; transition-duration: 0s; transform: translate3d(-559px, 0px, 0px);">
+                    <li data-thumb="images/products/{{hot.Media.image.name}}" class="clone" style="width: 559px; float: left;max-height:500px; display: block;">
+                          <img src="images/products/{{hot.Media.image.name}}" alt="">
+                        </li>
+{%  for  images in hot.images %}
+{% if images.url != '' %}
+              	<li data-thumb="uploads/brochures/{{images.url}}" class="clone" style="width: 559px; float: left; display: block;max-height:100px;">
+                          <img style="max-height:500px;"src="uploads/brochures/{{images.url}}" alt="">
+                        </li>
+         {% endif %}
+           {% endfor %}
+                    </ul>
+                </div>
+
+
+
+                <ul class="flex-direction-nav">
+                	<li><a class="flex-prev" href="#">Previous</a></li>
+                  <li><a class="flex-next" href="#">Next</a>
+                	</li></ul></div>
+                    <!-- FlexSlider -->
+                  <script defer="" src="js/jquery.flexslider.js"></script>
+                    <script>
+                    // Can also be used with $(document).ready()
+                    $(window).load(function() {
+                      $('.flexslider').flexslider({
+                      animation: "slide",
+                      controlNav: "thumbnails"
+                      });
+                    });
+                    </script>
+         
+     <div class="single-pg-hdr">
+                <h2>{{hot.titre}}</h2>
+               {% if hot.hotel != null %}
+        <p> <h4>Adresse:</h4>{{hot.hotel.adresse}}</p>
+
+                       {% endif %}
+                   <p><b><i>{{hot.descrip}}</i></b></p>
+
+                {% if hot.voyage != null %}
+
+
+
+               {% if hot.voyage.circuit == null %}
+                  {% if hot.voyage.transfert != null %}
+                <table border="2" style="width: 100%;">
+                    <thead>
+                      <tr>
+                      <th>Jour</th>
+
+                        <th>Itinéraire</th>
+                        <th>Horaire</th>
+                        <th>Visite</th>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                       {% set day = 0%} 
+
+                     {% for voyage in hot.voyage.joure %}
+
+                      <tr>
+                       <td> {% set  day = day + 1  %} {{day}} </td>
+
+                        <td>{{voyage.details.ltineaire}}</td>
+                        <td>{{voyage.details.horaire}}</td>
+                        <td>{{voyage.details.Destination}}</td>
+
+                      </tr>
+                                                      {% endfor %}
+
+                    </tbody>
+                  </table>
+
+
+                   
+
+
+{% endif %}
+
+
+
+
+
+
+
+           
+                                {% endif %}
+
+
+      {% for voyage in hot.voyage.joure %}
+
+
+
+<h4>{{ voyage.titre }}</h4>
+
+<p>{{ voyage.description }}</p>
+
+                                                      {% endfor %}
+                {% endif %}
+                                  {% if hot.voyage != null %}
+
+                  {% if hot.voyage.circuit != null %}
+
+<h4>prix incluant</h4>
+<p>{{ hot.voyage.circuit.prixIncluant }}</p>
+<h4>prix n'incluant pas </h4>
+<p>{{ hot.voyage.circuit.prixNincusPas }}</p>
+
+
+                {% endif %}
+         
+{% endif %} 
+
+              </div>
+            </div>
+
+            <div class="col-md-4 single-gd-rt">
+              <div class="spl-btn">
+                <div class="spl-btn-bor">
+                  <a href="#">
+                    <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>                      
+                  </a>
+                  <p>Offre spéciale
+</p>  
+                  <script>
+                    $(document).ready(function(){
+                    $('[data-toggle="tooltip"]').tooltip();   
+                    });
+                  </script>
+                </div>
+                <div class="sp-bor-btn text-right">
+                  <h4>
+
+{% if hot.promo.promo != 'NON' %}
+
+                  	<span>${{hot.pix}}</span> 
+                ${{hot.pix-((hot.promo.promo * hot.pix) / 100) }}
+                {% else %}
+{{hot.pix}}DT
+
+{% endif %}
+
+
+
+
+              </h4>
+                  <p class="best-pri">Best price</p>
+               <button id="show" class="btn btn-success" style="
+    width: 100%;
+    height: 10%;
+" >  <h3 style="color: aliceblue;">Réserver</h3></button>
+                </div>
+              </div>
+
+              <div class="other-comments">
+                <div class="comments-head">
+                  <h3>Déscription</h3>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="comments-bot">
+                  <p>{{hot.shortdesc}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+     </div>
+
+       <div id="reservationShow" onclick = "Geeks({{hot.id}})" style="display: none;">   
+                 <div class="container">
+                                          <button id="hide" class="btn btn-danger" style="
+    margin-left: 83%;
+    width: 10%;
+    height: 6%;
+    position: absolute;
+">*</button>
+{% set idR= app.request.get('id') %}
+<center>
+<<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+      
+    
+  <form  method ="POST" id="loginForm" name="form"  
+  action="{{ path('email', parameters = {id:idR}, relative = false) }}}}">
+        
+                      <h1 > Réservation  </h1>
+                      <div class="login-grids">
+                        <div class="login-grid-left">
+                          <fieldset id="body">
+                            <fieldset>
+                              <label for="email">Email </label>
+                              <input type="text" name="email" id="email">
+                            </fieldset>
+                            <fieldset>
+                              <label for="password">Tel</label>
+                              <input type="number" name="tel" id="password">
+                            </fieldset>
+                             <fieldset>
+                              <label for="password">nom</label>
+                              <input type="string" name="nom" id="password">
+                            </fieldset>
+                               <fieldset>
+                              <label for="password">prenom</label>
+                              <input type="string" name="pren" id="password">
+                            </fieldset>
+                 
+                  
+                   
+                            <div class="chrome-button" >
+                              <<input  style="background-color: #28a745;color: #f8f9fa;"type="submit" name="" value="Réserver"/>
+                            </div>
+                       
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                    </div>
+  </div>
+</div>
+</center>
+
+
+
+                  </div> 
+                                    </div> 
+
+          <script>
+
+              $('form').attr('action', 'email/'+{{idR}});
+
+
+$(document).ready(function(){
+  $("#hide").click(function(){
+document.getElementById("reservationShow").style="display: none ;margin-top: -50;position: absolute;margin-left: 15%;" });
+  $("#show").click(function(){
+document.getElementById("reservationShow").style="display: block ;margin-top: -100%;position: absolute;margin-left: 15%;" });
+});
+</script>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- //container -->
+  </div>
+		{% endblock %}
+

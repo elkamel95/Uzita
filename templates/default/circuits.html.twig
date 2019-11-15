@@ -1,0 +1,61 @@
+{% extends 'Frontbase.html.twig' %}
+{% block ButtonSerch%}
+{% block TitreRecherche %}
+   
+						{% endblock %}
+{% endblock %}
+	{% block banner %}
+{% endblock %}
+
+{% block body %}
+ <div class="container">
+			<div class="banner-bottom-info">
+				<h3></h3>
+			</div>
+
+
+
+
+			                                                            {% for item in stackF %}
+
+
+						<div class="banner-bottom-grids">
+{% for voyage in item %}
+
+				<div class="col-md-4 weekend-grids">
+					<div class="weekend-grid">
+						<a href="{{ path('detailArticle', parameters = {'id':voyage.Article.id }, relative = false) }}">
+							<img src="images/products/{{voyage.Article.Media.image.name}} "alt="">
+							<div class="weekend-grid-info">
+								<h5>{{voyage.Article.titre}}</h5>
+								<div class="rating">
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</div>
+								<h6>{{voyage.joure|length - 1 }} Nuits / {{voyage.joure|length}} jours</h6>
+								<h4> a partir </h4>
+								<p>${{voyage.Article.pix}}</p>
+							</div>
+						</a>
+					</div>
+				</div>
+			
+
+{% endfor %}
+
+
+
+
+				<div class="clearfix"> </div>
+			</div>
+{% endfor %}
+
+
+		</div>   
+				</div>   
+
+{% endblock %}
+		

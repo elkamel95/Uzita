@@ -1,0 +1,31 @@
+
+{{ form_start(form) }}
+                     {{ form_row(form.depart, {'label' : 'Départ'}) }}
+                     {{ form_row(form.article.dest, {'label' : 'Destination'}) }}
+
+                     {{ form_row(form.TypeVol, {'label' : 'Type de Vol'}) }}
+                     {{ form_row(form.class, {'label' : 'class'}) }}
+                     {{ form_row(form.adulte, {'label' : 'adulte'}) }}
+                                          {{ form_row(form.jeune, {'label' : 'jeune'}) }}
+
+
+
+
+                 
+
+
+                      {{ form_row(form.article.titre, {'label': 'Titre'}) }}
+                      {{ form_row(form.article.pix, {'label': 'Prix'}) }}
+
+                      {{ form_row(form.article.shortdesc, {'label': 'court déscripton'}) }}
+                      {{ form_row(form.article.descrip, {'label': 'déscripton'}) }}
+                      {{ form_row(form.article.datedep, {'label': 'date départ'}) }}
+                      {{ form_row(form.time, {'label': 'temps'}) }}
+
+                      {{ form_row(form.article.datearriv, {'label': 'date darrivée'}) }}
+                      {{ form_row(form.timeDarriver, {'label': 'temps  Darriver'}) }}
+
+
+                                       
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

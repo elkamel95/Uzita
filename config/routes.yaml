@@ -1,0 +1,71 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+
+
+index:
+    path: /uzita
+    controller: App\Controller\DefaultController::index
+contact:
+     path: /contact
+     controller: App\Controller\DefaultController::contact
+volsearch:
+     path: /volsearch
+     controller: App\Controller\DefaultController::volsearch
+# administrateurRemovePromos:
+#     path:     /admin/Promos/remove/{id}
+#     controller: App\Controller\DefaultController::removePromo
+# administrateurUpdatePromos:
+#     path:    /admin/Promos/{id}
+#     App\Controller\DefaultController::UpdatePromo
+
+detailArticle:
+    path: /detailArticle
+    controller: App\Controller\DefaultController::detailArticle    
+hotel:
+    path: /hotels
+    controller: App\Controller\DefaultController::hotels
+
+
+voyageSearch:
+    path: /voyage
+    controller: App\Controller\DefaultController::VoyageSearch
+Voyage:
+    path: /voyages
+    controller: App\Controller\DefaultController::Voyage
+circuits:
+    path: /circuits
+    controller: App\Controller\DefaultController::circuits
+transfert:
+    path: /transfert
+    controller: App\Controller\DefaultController::transfert
+    
+billeterie:
+    path: /Billeterie
+    controller: App\Controller\DefaultController::billeterie
+vols:
+    path: /vols
+    controller: App\Controller\DefaultController::vols
+promo:
+    path: /promo
+    controller: App\Controller\DefaultController::promo
+DetailHotel:
+    path: /DetailHotel
+    controller: App\Controller\DefaultController::detailhotel
+admin:
+    path: /admin
+    controller: fos_user.security.controller:loginAction
+
+adminprofile:
+    path: /admin/profile
+    controller: fos_user.profile.controller:showAction
+adminindex:
+    path: /
+    controller: App\Controller\DefaultController::index
+omra:
+    path: /omra
+    controller: App\Controller\DefaultController::omra
+uzitaTravel:
+    path: /about
+    controller: App\Controller\DefaultController::uzitaTravel

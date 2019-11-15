@@ -1,0 +1,30 @@
+{{ form_start(form) }}
+                 
+<div class="hidden">
+                    {{ form_row(form.Article.dest,{'value':'null'}) }}
+
+</div>
+                                            
+
+
+                      {{ form_row(form.Article.titre, {'label': 'Titre'}) }}
+                      {{ form_row(form.Article.pix, {'label': 'Prix'}) }}
+                      {{ form_row(form.circuit.prixIncluant) }}
+                      {{ form_row(form.circuit.prixNincusPas) }}
+                      {{ form_row(form.Article.shortdesc, {'label': 'court déscripton'}) }}
+                      {{ form_row(form.Article.descrip, {'label': 'déscripton'}) }}
+                      {{ form_row(form.Article.datedep, {'label': 'date départ'}) }}
+
+                      {{ form_row(form.Article.datearriv, {'label': 'date darrivée'}) }}
+                         <div class="hidden">
+        {{ form_widget(form.Article.topDistination) }}
+    </div>
+
+
+                                            {{ form_row(form.Article.promo) }}
+                                            {{ form_row(form.Article.Media) }}
+                                            {{ form_row(form.Article.images) }}
+
+
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

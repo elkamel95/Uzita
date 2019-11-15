@@ -1,0 +1,124 @@
+{% extends 'Frontbase.html.twig' %}
+{% block ButtonSerch%}
+{% block TitreRecherche %}
+														Rechercher des Voyages Domestiques & Internationales  	 
+   
+						{% endblock %}
+<form action="{{ path('voyageSearch') }}
+">
+															<div class="reservation">
+																<ul>		
+																	<li  class="span1_of_1 desti about-desti">
+																		 <div class="book_date">
+																				<input type="hidden" placeholder="de" class="typeahead1 input-md form-control tt-input" required="" name="paye" value="{{id}}">
+																		 </div>					
+																	 </li>
+																</ul>
+															</div>
+		<div class="reservation">
+																<ul>		
+																	<li  class="span1_of_1 desti about-desti">
+																		 <h5>Destination</h5>
+																		 <div class="book_date">
+																				<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+																				<input type="text" placeholder="à" class="typeahead1 input-md form-control tt-input" required="" name="destination">
+																		 </div>					
+																	 </li>
+																</ul>
+															</div>
+															<div class="reservation">
+																<ul>
+														<div class="col-md-6 banner-bottom-grid">
+	<div class="row">
+																<div class="col-6">
+																		 <h5>Date Debut</h5>
+																		 <div class="book_date">
+																			<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+																			<input type="date" name="from" value="Select date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Select date';}">
+																		 </div>		
+																	</div>
+																<div class="col-6">
+
+																		 <h5>Date Fin</h5>
+																		 <div class="book_date">
+																				<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+																				<input type="date" name="to" value="Select date" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Select date';}">
+																		 </div>	
+																		 </div>				
+																	 </div>
+																	</div>
+                                                                </div> 
+          
+																	 <div class="clearfix"></div>
+																</ul>
+															</div>
+															<div class="reservation">
+																<ul>
+																	
+																	<div class="clearfix"></div>
+																</ul>
+															</div>
+
+															<div class="reservation">
+																<ul>	
+																	 <li class="span1_of_3">
+																			<div class="date_btn">
+																				
+																					<input class ="btn btn-info" type="submit"  />
+
+																			</div>
+																	 </li>
+																	 <div class="clearfix"></div>
+																</ul>
+															</div>
+</form>
+
+			
+
+															{% endblock %}
+{% block body %}
+ <div class="container">
+			<div class="banner-bottom-info">
+				<h3></h3>
+			</div>
+			                                                            {% for item in stackF %}
+
+
+						<div class="banner-bottom-grids">
+{% for voyage in item %}
+
+				<div class="col-md-4 weekend-grids">
+					<div class="weekend-grid">
+						<a href="{{ path('detailArticle', parameters = {'id':voyage.Article.id }, relative = false) }}">
+							<img src="images/products/{{voyage.Article.Media.image.name}} "alt="">
+							<div class="weekend-grid-info">
+								<h5>{{voyage.Article.titre}}</h5>
+								<div class="rating">
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+								</div>
+								<h6>{{voyage.joure|length - 1 }} Nuits / {{voyage.joure|length}} jours</h6>
+								<h4> a partir </h4>
+								<p>${{voyage.Article.pix}}</p>
+							</div>
+						</a>
+					</div>
+				</div>
+{% endfor %}
+
+
+
+
+				<div class="clearfix"> </div>
+			</div>
+{% endfor %}
+
+
+		</div>   
+				</div>   
+
+{% endblock %}
+		

@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}transfert index{% endblock %}
+
+{% block body %}
+    <h1>Transfert </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                                <th>Titre</th>
+                <th>Pix</th>
+                <th>court déscription</th>
+                 <th>Réservation</th>
+
+   <th>image</th>
+
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for voyage in voyages %}
+                    {% if voyage.circuit == null %}
+                    {% if voyage.transfert != null %}
+
+            <tr>
+                <td>{{ voyage.id }}</td>
+                                <td>{{ voyage.Article.titre }}</td>
+                <td>{{ voyage.Article.pix }}</td>
+                <td>{{ voyage.Article.shortdesc }}</td>
+
+                <td>{{ voyage.Article.reservations | length  }}
+{% if  voyage.Article.reservations | length  > 0 %}
+                    <a href="{{ path('reservation_Hotel', {'id': voyage.Article.id}) }}">show</a>
+
+{% endif %}
+
+
+
+
+</td>
+                               <td><img src="{{ asset('/images/products/') | imagine_filter('test') }}{{voyage.Article.Media.image.name}}" />
+
+</td>
+                <td>
+                    <a href="{{ path('transfert_show', {'id': voyage.id}) }}">show</a>
+                    <a href="{{ path('transfert_edit', {'id': voyage.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+         
+                    {% endif %}
+{% endif %}
+
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+    <a href="{{ path('transfert_new') }}">Create new</a>
+{% endblock %}

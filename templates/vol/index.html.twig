@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vol index{% endblock %}
+
+{% block body2 %}
+    <h1>Vol index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>date de départ</th>
+                <th>date d'arrivée</th>
+
+                <th>Départ</th>
+                <th>destination</th>
+
+                <th>Adulte</th>
+                <th>Jeune</th>
+                                 <th>Réservation</th>
+
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for vol in vols %}
+            <tr>
+                <td>{{ vol.id }}</td>
+                <td>{{ vol.article.Titre }}</td>
+                 <td>{{ vol.article.datedep |date('Y-m-d') }}</td>
+                <td>{{ vol.article.datearriv  |date('Y-m-d')}}</td>
+                <td>{{ vol.depart }}</td>
+                <td>{{ vol.article.dest }}</td>
+
+                <td>{{ vol.adulte }}</td>
+                <td>{{ vol.jeune }}</td>
+                             <td>{{ vol.Article.reservations | length  }}
+{% if  vol.Article.reservations | length  > 0 %}
+                    <a href="{{ path('reservation_Hotel', {'id': vol.Article.id}) }}">show</a>
+
+{% endif %}
+
+
+
+
+</td>
+                <td>
+                    <a href="{{ path('vol_show', {'id': vol.id}) }}">show</a>
+                    <a href="{{ path('vol_edit', {'id': vol.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('vol_new') }}">Create new</a>
+
+{% endblock %}
